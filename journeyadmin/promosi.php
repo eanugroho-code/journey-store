@@ -1,24 +1,50 @@
+<?php include "includes/functions.php"; ?>
+
 <?php
-require "../koneksi.php";
 
-$msg = '';
+if (isset($_POST['submit'])) {
 
-if (isset($_POST['upload'])) {
-    $image = $_FILES['image']['name'];
-    $path = 'uploads/' . $image;
-
-    $sql = $mysqli->query("INSERT INTO slider (image_path) VALUES ('$path')");
-
-    if ($sql) {
-        move_uploaded_file($_FILES['image']['tmp_name'], $path);
-        $msg = 'Image Uploaded Successfully !';
-    } else {
-        $msg = 'Image Upload Failed!';
-    }
+    createrow();
 }
 
-$result = $mysqli->query("SELECT image_path FROM slider");
+
+$sql = "SELECT * FROM slides order by id desc limit 4";
+
+$query = mysqli_query($conn, $sql);
+
+$li = "";
+$i = 0;
+
+
+$div = "";
+while ($row = mysqli_fetch_array($query)) {
+
+    if ($i == 0) {
+
+
+        $li .= '<li data-target="#carouselExampleIndicators" data-slide-to="' . $i . '" class="active"></li>';
+
+        $div .= '<div class="carousel-item active">
+      <img src="images/' . $row['image'] . '" class="d-block w-100" alt="...">
+    ';
+    } else {
+        $li .= '<li data-target="#carouselExampleIndicators" data-slide-to="' . $i . '"></li>';
+
+        $div .= '<div class="carousel-item ">
+      <img src="images/' . $row['image'] . '" class="d-block w-100" alt="...">
+    ';
+    }
+
+    $div .= '</div>';
+
+    $i++;
+}
+
+
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +64,10 @@ $result = $mysqli->query("SELECT image_path FROM slider");
 
     form div {
         margin-bottom: 10px;
+    }
+
+    .image {
+        border-radius: 150px;
     }
 </style>
 
@@ -64,61 +94,38 @@ $result = $mysqli->query("SELECT image_path FROM slider");
         <div class="row justify-content-center mb-2">
             <div class="col-lg-10">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <?php 
-                        $i = 0;
-                        foreach ($result as $row){
-                            $actives = '';
-                            if($i == 0){
-                                $actives = 'active';
-                            }
-                        ?>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $i; ?>" class="<?= $actives; ?>"></button>
-                        <?php $i++; } ?>
-                    </div>
-                    <div class="carousel-inner">
-                    <?php 
-                        $i = 0;
-                        foreach ($result as $row){
-                            $actives = '';
-                            if($i == 0){
-                                $actives = 'active';
-                            }
-                        ?>
-                        <div class="carousel-item <?= $actives; ?>">
-                            <img src="<?= $row['image_path']?>" class="d-block w-100">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <?php echo $li; ?>
+                        </ol>
+                        <div class="carousel-inner">
+                            <?php echo $div; ?>
                         </div>
-
-                        <?php $i++; } ?>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-4 bg-dark rounded px-4">
-                <div class="text-center p-1">
-                    <h4 class="text-center text-light p-1">Select Image To Upload !</h4>
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <input type="file" name="image" class="form-control p-1" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="upload" class="btn btn-warning btn-block" value="Upload Image">
-                        </div>
-                        <div class="form-group">
-                            <h5 class="text-center tect-light"><?= $msg; ?></h5>
-                        </div>
-                    </form>
+        <div class="container">
+            <form action="promosi.php" method="post" enctype="multipart/form-data">
+                <div class="jumbotron bg-dark mt-5">
+                    <div class="text-center h1 text-white">Insert image</div>
+                    <div class="row justify-content-around mt-5">
+                        <input type="file" name="image" class="bg-primary p-2">
+                    </div>
+                    <div class="row justify-content-around container pl-5 pr-5 mt-5">
+                        <a href="update.php" class="btn btn-warning d-inline w-50">Update</a>
+                        <input type="submit" name="submit" value="Create" class="btn btn-success d-block w-50">
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 

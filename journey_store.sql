@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 07, 2022 at 05:29 PM
+-- Generation Time: Sep 10, 2022 at 08:16 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -81,23 +81,21 @@ INSERT INTO `produk` (`id`, `kategori_id`, `nama`, `harga`, `foto`, `detail`, `k
 -- --------------------------------------------------------
 
 --
--- Table structure for table `slider`
+-- Table structure for table `slides`
 --
 
-CREATE TABLE `slider` (
+CREATE TABLE `slides` (
   `id` int(11) NOT NULL,
-  `image_path` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `slider`
+-- Dumping data for table `slides`
 --
 
-INSERT INTO `slider` (`id`, `image_path`) VALUES
-(1, 'uploads/js.png'),
-(2, 'uploads/joheader2.png'),
-(3, 'uploads/joheader3.png'),
-(4, 'uploads/wed-1.png');
+INSERT INTO `slides` (`id`, `image`) VALUES
+(13, 'neonopen.jpg'),
+(17, '20220909_223256.png');
 
 -- --------------------------------------------------------
 
@@ -141,7 +139,10 @@ INSERT INTO `user_info` (`id`, `name`, `email`, `address`, `whatsapp`, `password
 (2, '123', '123@123.com', '123', '123', '202cb962ac59075b964b07152d234b70'),
 (3, '1232', '123@ffff.com', '123', '123', '202cb962ac59075b964b07152d234b70'),
 (4, 'aaaa', 'a@a.com', 'a', '4', '0cc175b9c0f1b6a831c399e269772661'),
-(5, 'aziz', 'aziz@yahoo.com', 'metland', '08881111888', '25d55ad283aa400af464c76d713c07ad');
+(5, 'aziz', 'aziz@yahoo.com', 'metland', '08881111888', '25d55ad283aa400af464c76d713c07ad'),
+(6, 'eanugroho', 'ekoarinugroho04@gmail.com', 'toko pina', '081383796300', 'b0f6e126ece89c310167bea4dff60dbd'),
+(7, 'TOKO PINA', 'pina@pina.com', 'harvest city', '087886180489', 'cad77c7dffc10fcacc77ff0690f2897a'),
+(8, 'eanugroho', 'journey.ea@gmail.com', 'wahana harapan', '081383796300', 'b0f6e126ece89c310167bea4dff60dbd');
 
 --
 -- Indexes for dumped tables
@@ -168,9 +169,9 @@ ALTER TABLE `produk`
   ADD KEY `kategori_produk` (`kategori_id`);
 
 --
--- Indexes for table `slider`
+-- Indexes for table `slides`
 --
-ALTER TABLE `slider`
+ALTER TABLE `slides`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -208,10 +209,10 @@ ALTER TABLE `produk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `slider`
+-- AUTO_INCREMENT for table `slides`
 --
-ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `slides`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -223,7 +224,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

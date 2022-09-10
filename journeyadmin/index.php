@@ -9,7 +9,7 @@ $jumlahKategori = mysqli_num_rows($queryKategori);
 $queryProduk = mysqli_query($mysqli, "SELECT * FROM produk");
 $jumlahProduk = mysqli_num_rows($queryProduk);
 
-$queryPromosi = mysqli_query($mysqli, "SELECT * FROM slider");
+$queryPromosi = mysqli_query($mysqli, "SELECT * FROM slides");
 $jumlahPromosi = mysqli_num_rows($queryPromosi);
 ?>
 

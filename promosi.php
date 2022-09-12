@@ -47,9 +47,16 @@ while ($row = mysqli_fetch_array($query)) {
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
   <title>hello</title>
 </head>
+
+<style>
+  .carousel {
+    height: 250px;
+    box-shadow: 0px 5px 20px #1ac584;
+  }
+</style>
+
 
 <body>
   <div class="container mt-4">

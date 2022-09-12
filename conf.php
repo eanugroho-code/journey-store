@@ -317,7 +317,7 @@ height: 200px;
             <?php
             $select_product = mysqli_query($mysqli, "SELECT * FROM `produk`") or die('query failed');
             if (mysqli_num_rows($select_product) > 0) {
-                while ($fetch_product = mysqli_fetch_assoc($select_product)) {
+               while ($fetch_product = mysqli_fetch_assoc($select_product)) {
             ?>
                      <form method="post" class="box" action="">
                         <img src="./journeyadmin/uploads/<?php echo $fetch_product['foto']; ?>" width="300px" alt="">
@@ -330,10 +330,31 @@ height: 200px;
                         <input type="submit" value="add to cart" name="add_to_cart" class="btn">
                      </form>
                <?php
-                };
+               };
             };
-                ?>
+               ?>
 
             </div>
 
          </div>-->
+
+<section class="shop container mt-15">
+   <h5 class="section-title">Shop Products</h5>
+   <div class="shop-content">
+      <div class="product-box">
+         <?php
+         $select_product = mysqli_query($mysqli, "SELECT * FROM `produk`") or die('query failed');
+         if (mysqli_num_rows($select_product) > 0) {
+            while ($fetch_product = mysqli_fetch_assoc($select_product)) {
+         ?>
+               <img src="journeyadmin/uploads/<?php echo $fetch_product['foto']; ?>" width="150px" alt="" class="product-img">
+               <h4 class="product-title"><?php echo $fetch_product['nama']; ?></h4>
+               <span class="price">Rp.<?php echo $fetch_product['harga']; ?></span>
+               <i class="bx bx-shopping-bag add-cart"></i>
+      </div>
+<?php
+            };
+         };
+?>
+   </div>
+</section>

@@ -56,7 +56,7 @@ while ($row = mysqli_fetch_array($query)) {
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
    <title>Journey Store</title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
@@ -77,54 +77,52 @@ while ($row = mysqli_fetch_array($query)) {
       ?>
       <div class="d-flex justify-content-between align-items-center">
          <div class="d-flex justify-content-between align-items-center">
-            <i class='bx bxs-store-alt'></i>
+            <img src="image/headerjo.png" width="47px" height="50px" padding="0" alt="">
             <h2 class="text-brand">
                Journey <span>Store</span>
             </h2>
          </div>
          <a href="index.php?logout=<?php echo $user_id; ?>" onclick="return confirm('Kamu ingin meninggalkan halaman ini ? ');" class="delete-btn">
-            <h3>Hi, <?php echo $fetch_user['name']; ?></h3>
+            <h3>Hi, <?php echo $fetch_user['name']; ?> </h3>
          </a>
       </div>
 
       <?php require "promosi.php"; ?>
       <!-- popup -->
-      <div class="popup">
+      <!-- <div class="popup">
          <div class="popup_content">
             <img class="popup_image" src="popup/20220910_013803.png" width="300px" alt="Popup">
             <img class="popup_close" src="popup/icon-close.png" alt="Close">
          </div>
+      </div> -->
+      <!-- card product -->
+      <div class="wrap-swift d-flex mt-4">
+         <?php
+         $select_product = mysqli_query($mysqli, "SELECT * FROM `produk`") or die('query failed');
+         if (mysqli_num_rows($select_product) > 0) {
+            while ($fetch_product = mysqli_fetch_assoc($select_product)) {
+         ?>
+               <div class="card">
+                  <img src="journeyadmin/uploads/<?php echo $fetch_product['foto']; ?>" width="auto" class="card-img-top" alt="">
+                  <div class="card-body">
+                     <h5 class="card-title"><?php echo $fetch_product['nama']; ?></h5>
+                     <p class="card-text">Rp.<?php echo $fetch_product['harga']; ?></p>
+                  </div>
+                  <div class="wrap-shop d-flex align-items-center">
+                     <img src="assets/icon-shop2.png" alt="">
+                  </div>
+               </div>
+         <?php
+            };
+         };
+         ?>
       </div>
 
-      <section class="shop container mt-15">
-         <h5 class="section-title">Shop Products</h5>
-         <div class="shop-content">
-            <div class="product-box">
-               <?php
-               $select_product = mysqli_query($mysqli, "SELECT * FROM `produk`") or die('query failed');
-               if (mysqli_num_rows($select_product) > 0) {
-                  while ($fetch_product = mysqli_fetch_assoc($select_product)) {
-               ?>
-                     <img src="journeyadmin/uploads/<?php echo $fetch_product['foto']; ?>" width="150px" alt="" class="product-img">
-                     <h4 class="product-title"><?php echo $fetch_product['nama']; ?></h4>
-                     <span class="price">Rp.<?php echo $fetch_product['harga']; ?></span>
-                     <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-      <?php
-                  };
-               };
-      ?>
-         </div>
-      </section>
+
+
+
    </div>
-   <!-- <header>
 
-      <div class="nav container">
-         <a href="#" class="logo">Hai </a>
-
-         <i class="bx bx-shopping-bag" id="cart-icon"></i>
-      </div>
-   </header> -->
 
 
 

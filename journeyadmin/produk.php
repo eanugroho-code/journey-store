@@ -84,9 +84,10 @@ function generateRandomString($length = 25)
                     <input type="number" name="harga" class="form-control" autocomplete="off" required>
                 </div>
                 <div>
-                    <label for="foto">Foto</label>
+                    <label for="foto">Foto wajib <h1>ukuran 1600x1600</h1> </label>
                     <input type="file" name="foto" id="foto" class="form-control">
                 </div>
+
                 <div>
                     <label for="detail">Detail</label>
                     <textarea name="detail" id="detail" cols="30" rows="10" class="form-control"></textarea>
@@ -114,7 +115,7 @@ function generateRandomString($length = 25)
                 $target_dir = "uploads/";
                 $nama_file = basename($_FILES["foto"]["name"]);
                 $target_file = $target_dir . $nama_file;
-                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
                 $image_size = $_FILES["foto"]["size"];
                 $random_name = generateRandomString(20);
                 $new_name = $random_name . "." . $imageFileType;
@@ -140,7 +141,7 @@ function generateRandomString($length = 25)
                             if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'gif') {
                             ?>
                                 <div class="alert alert-warning mt-3" role="alert">
-                                    File wajib bertipe jpg, png, dan gif
+                                    File wajib bertipe jpg, png
                                 </div>
                         <?php
                             } else {

@@ -1,16 +1,13 @@
 .main{
-   max-width: 480px;
+   max-width: 460px;
+   border: 1px solid rgb(36, 139, 118);
+   padding: 15px;
    height: 100%;
-   border: 1px solid #888;
    box-sizing: border-box;
-   padding: 20px;
    background: #201b2c;
-   color: #f0ffffde;
+   color: #ffffffde;
    font-size: 12pt;
-   box-shadow: 0px 10px 40px #00000056;
-}
-header{
-   position: fixed;
+   box-shadow: 0px 10px 40px #17336896;
 }
 
 h2,
@@ -24,47 +21,50 @@ h3{
    color: #2b8f6f;
 }
 .text-brand  {
-   font-size: 17px;
+   font-size: 23px;
    font-weight: bold;
 }
 .text-brand span {
    font-weight: 100;
-}
-
-.carousel{
-   height: 150px;
-}
-
-.text-carousel{
-   background-color: #00000007;
-   padding-left: 70px;
-   position: absolute;
-   top: 0;
+   color: #2b8f6f;
 }
 
 
-section{
-   padding: 4rem 0 3rem;
+/* cart */
+
+.wrap-swift {
+   width: 100%;
+   justify-content: center;
+   flex-direction: row;
+   flex-wrap: wrap;
+   padding: 0;
+   gap: 1rem;
 }
 
-.section-title{
-   font-size: 17px;
-   font-weight: 300;
-   text-align: center;
-   margin-bottom: 1rem;
-}
-
-.shop{
-   margin-top: 2rem;
-}
-.shop-content{
-   width: 150px;
-   padding: 8px;
-   box-shadow: 0px 5px 20px #00000010;
+.card{
+   width: 170px;
+   box-shadow: 0px 5px 20px #07e19c10;
    border: none;
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(115px, auto));
-   gap: 2rem;
+   color: #4e3434;
+}
+
+.wrap-shop{
+   background-color: #2b8f6f;
+   padding: 15px;
+   border-radius: 8px;
+   right: -5px;
+   bottom: -5px;
+   box-shadow: 0px 5px 20px #00000010;
+   position: absolute;
+}
+
+.card-body h5,
+.card-body p{
+margin-bottom: 0;
+}
+
+.card-body {
+   padding: 10;
 }
 
 /* popup */

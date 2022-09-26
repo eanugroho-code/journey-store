@@ -1,0 +1,82 @@
+:root{
+    --bg-body: #dff9fb;
+    --bg-nav: #220455;
+    --color-nav: #644c89;
+    --color-nav-hover: #dff9fb;
+    --color-nav-active: #fff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    font-family: cursive;
+    background-color: var(--bg-body);
+}
+
+.nav {
+    position: fixed;
+    bottom: 0;
+    list-style-type: none;
+    display: flex;
+    height: 75px;
+    background-color: var(--bg-nav);
+    border-radius: 50px;
+    border: 1px solid rgb(36, 139, 118);
+
+}
+
+.nav li a {
+    text-decoration: none;
+    color: var(--color-nav);
+    width:  78px;
+    height: 100%;
+    display: inline-grid;
+    place-items: center;
+    position: center;
+    font-size: 25px;
+    z-index: 1;
+    position: relative;
+}
+
+.nav li a .title {
+    display: none;
+    font-size: 20px;
+}
+
+.nav li a:hover {
+    color: var(--color-nav-hover);
+}
+
+.nav li a.nav-item-active {
+    color: var(--color-nav-active);
+    transform: translateY(-7%);
+    font-size: 20px;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav li a.nav-item-active .title {
+    display: inline-block;
+}
+
+.nav .nav-indicator {
+    width: 90px;
+    height: 90px;
+    border-radius: 40%;
+    background-color: var(--bg-nav);
+    position: absolute;
+    top: -20px;
+    left: calc(300px - 152px);
+    transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#filter-svg {
+    display: none;
+}
+

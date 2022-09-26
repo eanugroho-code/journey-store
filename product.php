@@ -31,7 +31,7 @@
         </div>
         <div class="buttons">
           <button>Buy Now</button>
-          <button class="cart-btn">Add to Cart</button>
+          <button class="cart-btn center">Add to Cart</button>
         </div>
       </div>
     </div>

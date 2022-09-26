@@ -11,6 +11,11 @@ $jumlahProduk = mysqli_num_rows($queryProduk);
 
 $queryPromosi = mysqli_query($mysqli, "SELECT * FROM slides");
 $jumlahPromosi = mysqli_num_rows($queryPromosi);
+
+$queryMember = mysqli_query($mysqli, "SELECT * FROM user_info");
+$jumlahMember = mysqli_num_rows($queryMember);
+
+
 ?>
 
 
@@ -109,7 +114,7 @@ $jumlahPromosi = mysqli_num_rows($queryPromosi);
                             </div>
                             <div class="col-6 text-hite">
                                 <h3 class="fs-2">DataMember</h3>
-                                <p class="fs-4">Member</p>
+                                <p class="fs-4"><?php echo $jumlahMember ?> Member</p>
                                 <p><a href="datamember.php" class="text-white no-decoration">Lihat Detail</a></p>
                             </div>
                         </div>

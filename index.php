@@ -96,7 +96,7 @@ while ($row = mysqli_fetch_array($query)) {
          </div>
       </div> -->
       <!-- card product -->
-      <div class="wrap-swift d-flex mt-4">
+      <div class="wrap-swift d-flex mt-5">
          <?php
          $select_product = mysqli_query($mysqli, "SELECT * FROM `produk`") or die('query failed');
          if (mysqli_num_rows($select_product) > 0) {
@@ -107,9 +107,10 @@ while ($row = mysqli_fetch_array($query)) {
                   <div class="card-body">
                      <h5 class="card-title"><?php echo $fetch_product['nama']; ?></h5>
                      <p class="card-text">Rp.<?php echo $fetch_product['harga']; ?></p>
+                     <p class="card-text"><?php echo $fetch_product['ketersediaan_stok']; ?></p>
                   </div>
                   <div class="wrap-shop d-flex align-items-center">
-                     <img src="assets/icon-shop2.png" alt="">
+                     <a href="keranjang.php?id=<?php echo $fetch_product['id'] ?>"><img src="assets/icon-shop2.png"></a>
                   </div>
                </div>
          <?php
@@ -117,11 +118,15 @@ while ($row = mysqli_fetch_array($query)) {
          };
          ?>
       </div>
-
-
-
+      <br><br><br>
+      <div class="navbar">
+         <?php require "navbarbotom.php"; ?>
+      </div>
 
    </div>
+
+
+
 
 
 

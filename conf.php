@@ -30,7 +30,16 @@ $message[] = 'product added to cart!';
 header('location:cart.php');
 }
 };
+<?php
+session_start();
+$mysqli = new mysqli("localhost", "root", "", "journey_store");
 
+// Check connection
+if ($mysqli->connect_errno) {
+   echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+   exit();
+}
+?>
 .message{
 position: sticky;
 top:0; left:0; right:0;

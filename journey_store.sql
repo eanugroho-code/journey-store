@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 10, 2022 at 08:16 AM
+-- Generation Time: Sep 26, 2022 at 05:38 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -52,7 +52,10 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id`, `nama`) VALUES
-(1, 'Journey food');
+(1, 'Journey food'),
+(2, 'Journey Gadget'),
+(3, 'Journey Fashion'),
+(4, 'Journey Service');
 
 -- --------------------------------------------------------
 
@@ -75,27 +78,10 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `kategori_id`, `nama`, `harga`, `foto`, `detail`, `ketersediaan_stok`) VALUES
-(1, 1, 'Susu', 8000, 'bJvNVnShOlayecL4KSvv.jpg', 'Contoh', 'tersedia'),
-(2, 1, 'mie', 10000, 'CBLDCmj6aqBRg8uEQb4c.jpg', 'Enak', 'tersedia');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `slides`
---
-
-CREATE TABLE `slides` (
-  `id` int(11) NOT NULL,
-  `image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `slides`
---
-
-INSERT INTO `slides` (`id`, `image`) VALUES
-(13, 'neonopen.jpg'),
-(17, '20220909_223256.png');
+(3, 2, 'Airpods', 150000, '9GUzv5zokd9EIFETUwgn.png', '                                                Ini Adalah airpods                                        ', 'habis'),
+(4, 2, 'headphone', 115000, '2kBxeQLSByzDBJjNt33u.png', 'ini adalah headphone', 'tersedia'),
+(5, 2, 'watch', 75000, 'VwubMnBUTbwZka3WFXTT.png', 'ini adalah jam tangan', 'tersedia'),
+(6, 4, 'Service', 100000, 'd9cgoIILSLReWnNa91wU.png', '                        Jasa Pembuatan Website                    ', 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -142,7 +128,8 @@ INSERT INTO `user_info` (`id`, `name`, `email`, `address`, `whatsapp`, `password
 (5, 'aziz', 'aziz@yahoo.com', 'metland', '08881111888', '25d55ad283aa400af464c76d713c07ad'),
 (6, 'eanugroho', 'ekoarinugroho04@gmail.com', 'toko pina', '081383796300', 'b0f6e126ece89c310167bea4dff60dbd'),
 (7, 'TOKO PINA', 'pina@pina.com', 'harvest city', '087886180489', 'cad77c7dffc10fcacc77ff0690f2897a'),
-(8, 'eanugroho', 'journey.ea@gmail.com', 'wahana harapan', '081383796300', 'b0f6e126ece89c310167bea4dff60dbd');
+(8, 'eanugroho', 'journey.ea@gmail.com', 'wahana harapan', '081383796300', 'b0f6e126ece89c310167bea4dff60dbd'),
+(9, 'Bambang', 'Bamshar69@gmail.com', 'Rawa badung', '12345678', '25d55ad283aa400af464c76d713c07ad');
 
 --
 -- Indexes for dumped tables
@@ -167,12 +154,6 @@ ALTER TABLE `produk`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nama` (`nama`),
   ADD KEY `kategori_produk` (`kategori_id`);
-
---
--- Indexes for table `slides`
---
-ALTER TABLE `slides`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -200,19 +181,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `slides`
---
-ALTER TABLE `slides`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -224,7 +199,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

@@ -1,3 +1,8 @@
+<?php
+require "session.php";
+require "../koneksi.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +19,10 @@
     .no-decoration {
         text-decoration: none;
     }
+
+    form div {
+        margin-bottom: 10px;
+    }
 </style>
 
 <body>
@@ -29,62 +38,46 @@
             </ol>
         </nav>
 
-        <div class="my-5 col-12 col-md-6">
-            <h3>Data Member</h3>
-
-            <form action="" method="post">
-                <div>
-                    <label for="datamember">Pencarian</label>
-                    <input type="text" id="datamember" name="datamember" placeholder="input no whatsapp member" class="form-control">
-                </div>
-                <div class="mt-3">
-                    <button class="btn btn-primary" type="submit" name="simpan_kategori">Cari</button>
-                </div>
-            </form>
 
 
-            <div class="mt-3">
-                <h2>List Member</h2>
 
-                <div class="table-responsive mt-5">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($jumlahKategori == 0) {
-                            ?>
-                                <tr>
-                                    <td colspan=3 class="text-center">Tidak Ada Data</td>
-                                </tr>
-                                <?php
-                            } else {
-                                $jumlah = 1;
-                                while ($data = mysqli_fetch_array($queryKategori)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $jumlah; ?></td>
-                                        <td><?php echo $data['nama']; ?></td>
-                                        <td>
-                                            <a href="kategori-detail.php?p=<?php echo $data['id']; ?>" class="btn btn-info"><i class="fas fa-search"></i></a>
-                                        </td>
-                                    </tr>
-                            <?php
-                                    $jumlah++;
-                                }
+        <div class="mt-3 mb-5">
+            <h2>List User</h2>
+            <div class="table-responsive mt-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">email</th>
+                            <th scope="col">address</th>
+                            <th scope="col">whatsapp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM `user_info`";
+                        $result = mysqli_query($mysqli, $sql);
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $name = $row['name'];
+                                $email = $row['email'];
+                                $address = $row['address'];
+                                $whatsapp = $row['whatsapp'];
+                                echo '<tr>
+                                    <td>' . $name . '</td>
+                                    <td>' . $email . '</td>
+                                    <th>' . $address . '</th>
+                                    <th>' . $whatsapp . '</th>                                   
+                                    </tr>';
                             }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                        }
 
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
 
 
         <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>

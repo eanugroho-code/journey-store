@@ -37,19 +37,22 @@
 
 
         <div class="mt-3 mb-5">
-            <h2>Data Pesanan</h2>
-            <div class="table-responsive mt-5">
-                <table class="table">
-                    <thead>
-                        <tr>
+            <h2>Data Pesanan/h2>
+                <div class="table-responsive mt-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">email</th>
+                                <th scope="col">address</th>
+                                <th scope="col">whatsapp</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
         </div>
 
 

@@ -55,19 +55,19 @@ require "../koneksi.php";
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM `user_info`";
+                        $sql = "SELECT * FROM `pelanggan`";
                         $result = mysqli_query($mysqli, $sql);
                         if ($result) {
                             while ($row = mysqli_fetch_assoc($result)) {
-                                $name = $row['name'];
-                                $email = $row['email'];
-                                $address = $row['address'];
-                                $whatsapp = $row['whatsapp'];
+                                $nama_pelanggan = $row['nama_pelanggan'];
+                                $email_pelanggan = $row['email_pelanggan'];
+                                $alamat_pelanggan = $row['alamat_pelanggan'];
+                                $whatsapp_pelanggan = $row['whatsapp_pelanggan'];
                                 echo '<tr>
-                                    <td>' . $name . '</td>
-                                    <td>' . $email . '</td>
-                                    <th>' . $address . '</th>
-                                    <th>' . $whatsapp . '</th>                                   
+                                    <td>' . $nama_pelanggan . '</td>
+                                    <td>' . $email_pelanggan . '</td>
+                                    <th>' . $alamat_pelanggan . '</th>
+                                    <th>' . $whatsapp_pelanggan . '</th>                                   
                                     </tr>';
                             }
                         }

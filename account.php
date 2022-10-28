@@ -2,13 +2,13 @@
 
 require 'koneksi.php';
 session_start();
-$id = $_SESSION['id'];
+$id = $_SESSION['id_pelanggan'];
 
 if (!isset($id)) {
     header('location:index.php');
 };
 
-$query = mysqli_query($mysqli, "SELECT * FROM user_info WHERE id='$id'");
+$query = mysqli_query($mysqli, "SELECT * FROM pelanggan WHERE id_pelanggan='$id'");
 $data = mysqli_fetch_array($query);
 ?>
 
@@ -40,12 +40,6 @@ $data = mysqli_fetch_array($query);
 
 <body>
     <div class="main m-auto">
-        <?php
-        $select_user = mysqli_query($mysqli, "SELECT * FROM `user_info` WHERE id = '$id'") or die('query failed');
-        if (mysqli_num_rows($select_user) > 0) {
-            $fetch_user = mysqli_fetch_assoc($select_user);
-        };
-        ?>
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-between align-items-center">
                 <img src="image/headerjo.png" width="47px" height="50px" padding="0" alt="">
@@ -55,8 +49,24 @@ $data = mysqli_fetch_array($query);
                 Journey <span>Store</span>
             </h2>
         </div>
-        <?php require "promosi.php"; ?>
-
+        <?php require "promosi.php" ?>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a href="riwayat.php"><i class='bx bx-package bx-tada bx-rotate-180'> Riwayat Transaksi
+                        </i></a>
+                </div>
+                <div class="col">
+                    <i class='bx bx-receipt'>
+                        Status Pesanan
+                    </i>
+                </div>
+                <div class="col">
+                    <a href=""><i class='bx bx-send bx-fade-right'>Proses Pesanan</i></a>
+                </div>
+            </div>
+        </div>
         <div class="container mt-5">
             <h2>Info Profil</h2>
             <br>
@@ -64,23 +74,23 @@ $data = mysqli_fetch_array($query);
                 <form action="" method="post">
                     <div>
                         <label for="name">Username</label>
-                        <input type="text" name="name" id="name" class="form-control" value="<?php echo $fetch_user['name']; ?>" disabled readonly>
+                        <input type="text" name="name" id="name" class="form-control" value="<?php echo $data['nama_pelanggan']; ?>" disabled readonly>
                     </div>
                     <br>
                     <div>
                         <label for="email">Email</label>
-                        <input type="text" name="email" id="email" class="form-control" value="<?php echo $fetch_user['email']; ?>" disabled readonly>
+                        <input type="text" name="email" id="email" class="form-control" value="<?php echo $data['email_pelanggan']; ?>" disabled readonly>
 
                     </div>
                     <br>
                     <div>
                         <label for="alamat">Alamat</label>
-                        <input type="text" name="address" id="address" class="form-control" value="<?php echo $fetch_user['address']; ?>" disabled readonly>
+                        <textarea type="text" class="form-control" placeholder="<?php echo $data['alamat_pelanggan']; ?>" id="address" style="height: 100px" disabled readonly><?php echo $data['alamat_pelanggan']; ?></textarea>
                     </div>
                     <br>
                     <div>
                         <label for="whatsapp">WhatsApp</label>
-                        <input type="text" name="whatsapp" id="whatsapp" class="form-control" value="<?php echo $fetch_user['whatsapp']; ?>" disabled readonly>
+                        <input type="text" name="whatsapp" id="whatsapp" class="form-control" value="<?php echo $data['whatsapp_pelanggan']; ?>" disabled readonly>
                     </div>
                     <br>
                     <br>
@@ -89,9 +99,7 @@ $data = mysqli_fetch_array($query);
             </div>
         </div>
         <br>
-        <div class=" navbar">
-            <?php require "navbarbotom.php"; ?>
-        </div>
+        <?php require "navbarbotom.php"; ?>
     </div>
 
 

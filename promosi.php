@@ -52,7 +52,8 @@ while ($row = mysqli_fetch_array($query)) {
 
 <style>
   .carousel {
-    height: 250px;
+    width: auto;
+    height: 225px;
     box-shadow: 0px 5px 20px #1ac584;
   }
 </style>

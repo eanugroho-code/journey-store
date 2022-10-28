@@ -1,3 +1,13 @@
+<?php
+
+require "../koneksi.php";
+
+$id = $_GET['o'];
+
+$ambil = $mysqli->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan WHERE pembelian.id_pembelian='$_GET[id]'");
+$detail = $ambil->fetch_assoc();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,57 +15,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Member</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css">
 </head>
-
-<style>
-    .no-decoration {
-        text-decoration: none;
-    }
-
-    form div {
-        margin-bottom: 10px;
-    }
-</style>
 
 <body>
     <?php require "navbar.php"; ?>
+
     <div class="container mt-5">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">
-                    <a href="../journeyadmin/" class="no-decoration text-muted">
-                        <i class="fa-solid fa-house"></i> Home </a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">Data Member</li>
-            </ol>
-        </nav>
+        <h2>detail pesanan</h2>
 
+        <div class="col-12 col-mid-6 mb-5">
+            <form action="" enctype="multipart/form-data">
+                <br><br>
 
-
-
-        <div class="mt-3 mb-5">
-            <h2>Data Pesanan</h2>
-            <div class="table-responsive mt-5">
-                <table class="table">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
-
+                            <th>No</th>
+                            <th>Nama Produk</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
+                            <th>Subtotal</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $nomor = 1; ?>
+                        <?php $totalbelanja = 0; ?>
+                        <?php $ambil = $mysqli->query("SELECT * FROM pembelian_produk JOIN produk ON pembelian_produk.id_produk=produk.id_produk WHERE pembelian_produk.id_pembelian='$_GET[o]'"); ?>
+                        <?php while ($pecah = $ambil->fetch_assoc()) { ?>
+                            <tr>
+                                <td><?php echo $nomor; ?></td>
+                                <td><?php echo $pecah['nama_produk']; ?></td>
+                                <td><?php echo $pecah['harga_produk']; ?></td>
+                                <td><?php echo $pecah['jumlah_produk']; ?></td>
+                                <td><?php echo $pecah['harga_produk'] * $pecah['jumlah_produk']; ?></td>
+                            </tr>
+                            <?php $nomor++; ?>
+                            <?php $totalbelanja += $pecah['harga_produk'] * $pecah['jumlah_produk']; ?>
 
+                        <?php } ?>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="4">Total</th>
+                            <th>Rp. <?php echo number_format($totalbelanja) ?></th>
+                        </tr>
+                    </tfoot>
                 </table>
-            </div>
+
+            </form>
+
         </div>
+    </div>
 
-
-
-        <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="../fontawesome/js/all.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

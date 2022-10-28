@@ -1,6 +1,6 @@
 .main{
    max-width: 460px;
-   border: 1px solid rgb(36, 139, 118);
+   border: 1px solid rgb(242, 255, 252);
    padding: 15px;
    height: 100%;
    box-sizing: border-box;
@@ -30,7 +30,7 @@ h3{
 }
 
 
-/* cart */
+/* card */
 
 .wrap-swift {
    width: 100%;
@@ -47,6 +47,8 @@ h3{
    border: none;
    color: #4e3434;
 }
+
+
 
 .wrap-shop{
    background-color: #2b8f6f;
@@ -110,12 +112,38 @@ margin-bottom: 0;
    left: 0;
    margin: 0 auto;
     }
-   
-    @media screen and (max-width: 460px) {   
-      .navbar {
-   width:100%; 
-   left: -4%;
-   margin: 0 auto;   
+
+    @media (max-width: 300px) {
+      .main {
+          width: 100%;
+          min-height: 100vh;
+          margin: 0;
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(3, auto);
+          }
+      .card{
+         width: 120px;
+         box-shadow: 0px 5px 20px #07e19c10;
+         border: none;
+         color: #4e3434;
       }
-    } 
+      h2,
+h1,
+h3{
+   margin-bottom: 0;
+}
+
+h3{
+   font-size: 10px;
+   color: #2b8f6f;
+}
+.text-brand  {
+   font-size: 20px;
+   font-weight: bold;
+}
+.text-brand span {
+   font-weight: 80;
+   color: #2b8f6f;
+}
+  }
 

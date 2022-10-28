@@ -12,39 +12,41 @@
 
 <body>
 
-    <ul class="nav">
-        <span class="nav-indicator"> </span>
-        <li>
-            <a href="#">
-                <i class="bx bx-search"></i>
-                <span class="title">Cari</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="bx bx-help-circle"></i>
-                <span class="title">Help</span>
-            </a>
-        </li>
-        <li>
-            <a href="index.php" class="nav-item-active">
-                <i class="bx bx-home"></i>
-                <span class="title">Produk</span>
-            </a>
-        </li>
-        <li>
-            <a href="cart.php">
-                <i class="bx bx-cart"></i>
-                <span class="title">Cart</span>
-            </a>
-        </li>
-        <li>
-            <a href="account.php">
-                <i class="bx bx-user"></i>
-                <span class="title">Akun</span>
-            </a>
-        </li>
-    </ul>
+    <div class="container">
+        <ul class="nav">
+            <span class="nav-indicator"> </span>
+            <li>
+                <a href="#">
+                    <i class="bx bx-search"></i>
+                    <span class="title">Cari</span>
+                </a>
+            </li>
+            <li>
+                <a href="help.php">
+                    <i class="bx bx-help-circle"></i>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php" class="nav-item-active">
+                    <i class="bx bx-home"></i>
+                    <span class="title">Produk</span>
+                </a>
+            </li>
+            <li>
+                <a href="cart.php">
+                    <i class="bx bx-cart"></i>
+                    <span class="title">Cart</span>
+                </a>
+            </li>
+            <li>
+                <a href="account.php">
+                    <i class="bx bx-user"></i>
+                    <span class="title">Akun</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="filter-svg">
         <defs>

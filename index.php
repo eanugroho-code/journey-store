@@ -2,7 +2,7 @@
 
 require 'koneksi.php';
 session_start();
-$id = $_SESSION['id'];
+$id = $_SESSION['id_pelanggan'];
 
 if (!isset($id)) {
    header('location:index.php');
@@ -68,9 +68,10 @@ while ($row = mysqli_fetch_array($query)) {
 </head>
 
 <body>
+
    <div class="main m-auto">
       <?php
-      $select_user = mysqli_query($mysqli, "SELECT * FROM `user_info` WHERE id = '$id'") or die('query failed');
+      $select_user = mysqli_query($mysqli, "SELECT * FROM `pelanggan` WHERE id_pelanggan = '$id'") or die('query failed');
       if (mysqli_num_rows($select_user) > 0) {
          $fetch_user = mysqli_fetch_assoc($select_user);
       };
@@ -82,12 +83,13 @@ while ($row = mysqli_fetch_array($query)) {
                Journey <span>Store</span>
             </h2>
          </div>
-         <a href="index.php?logout=<?php echo $user_id; ?>" onclick="return confirm('Kamu ingin meninggalkan halaman ini ? ');" class="delete-btn">
-            <h3>Hi, <?php echo $fetch_user['name']; ?> </h3>
+         <a href="index.php?logout=<?php echo $id; ?>" onclick="return confirm('Kamu ingin meninggalkan halaman ini ? ');" class="delete-btn">
+            <h3>Hi, <?php echo $fetch_user['nama_pelanggan']; ?> </h3>
          </a>
       </div>
 
       <?php require "promosi.php"; ?>
+
       <!-- popup -->
       <!-- <div class="popup">
          <div class="popup_content">
@@ -103,26 +105,28 @@ while ($row = mysqli_fetch_array($query)) {
             while ($fetch_product = mysqli_fetch_assoc($select_product)) {
          ?>
                <div class="card">
-                  <img src="journeyadmin/uploads/<?php echo $fetch_product['foto']; ?>" width="auto" class="card-img-top" alt="">
-                  <div class="card-body">
-                     <h5 class="card-title"><?php echo $fetch_product['nama']; ?></h5>
-                     <p class="card-text">Rp.<?php echo $fetch_product['harga']; ?></p>
-                     <p class="card-text"><?php echo $fetch_product['ketersediaan_stok']; ?></p>
-                  </div>
-                  <div class="wrap-shop d-flex align-items-center">
-                     <a href="keranjang.php?id=<?php echo $fetch_product['id'] ?>"><img src="assets/icon-shop2.png"></a>
-                  </div>
+                  <i>
+                     <a href="detail-produk.php?id=<?php echo $fetch_product["id_produk"]; ?>"><img src="journeyadmin/uploads/<?php echo $fetch_product['foto_produk']; ?>" width="auto" class="card-img-top" alt=""></a>
+                     <div class="card-body">
+                        <h5 class="card-title"><?php echo $fetch_product['nama_produk']; ?></h5>
+                        <p class="card-text">Rp.<?php echo $fetch_product['harga_produk']; ?></p>
+                        Tersedia <?php echo $fetch_product['ketersediaan_stok']; ?>
+                     </div>
+                     <div class="wrap-shop d-flex align-items-center">
+                        <a href="beli.php?id=<?php echo $fetch_product['id_produk']; ?>"><img src="assets/icon-shop2.png"></a>
+                     </div>
+                  </i>
                </div>
          <?php
             };
          };
          ?>
       </div>
-      <br><br><br>
-      <div class="navbar">
-         <?php require "navbarbotom.php"; ?>
-      </div>
-
+      <br>
+      <br>
+      <br>
+      <br>
+      <?php require "navbarbotom.php"; ?>
    </div>
 
 

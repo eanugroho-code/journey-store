@@ -2,7 +2,7 @@
 require "session.php";
 require "../koneksi.php";
 
-$query = mysqli_query($mysqli, "SELECT a.*, b.nama AS nama_kategori FROM produk a JOIN kategori b ON a.kategori_id=b.id");
+$query = mysqli_query($mysqli, "SELECT a.*, b.nama AS kategori FROM produk a JOIN kategori b ON a.kategori_id=b.id");
 $jumlahProduk = mysqli_num_rows($query);
 
 $queryKategori = mysqli_query($mysqli, "SELECT * FROM kategori");
@@ -63,8 +63,8 @@ function generateRandomString($length = 25)
             <h3>Tambah Produk</h3>
             <form action="" method="POST" enctype="multipart/form-data">
                 <div>
-                    <label for="nama">Nama</label>
-                    <input type="text" id="nama" name="nama" class="form-control" autocomplete="off" required>
+                    <label for="nama_produk">Nama</label>
+                    <input type="text" id="nama_produk" name="nama_produk" class="form-control" autocomplete="off" required>
                 </div>
                 <div>
                     <label for="kategori">Kategori</label>
@@ -80,24 +80,21 @@ function generateRandomString($length = 25)
                     </select>
                 </div>
                 <div>
-                    <label for="harga">Harga</label>
-                    <input type="number" name="harga" class="form-control" autocomplete="off" required>
+                    <label for="harga_produk">Harga</label>
+                    <input type="number" name="harga_produk" class="form-control" autocomplete="off" required>
                 </div>
                 <div>
-                    <label for="foto">Foto wajib <h1>ukuran 1600x1600</h1> </label>
-                    <input type="file" name="foto" id="foto" class="form-control">
+                    <label for="foto_produk">Foto wajib <h1>ukuran 1600x1600</h1> </label>
+                    <input type="file" name="foto_produk" id="foto_produk" class="form-control">
                 </div>
 
                 <div>
-                    <label for="detail">Detail</label>
-                    <textarea name="detail" id="detail" cols="30" rows="10" class="form-control"></textarea>
+                    <label for="detail_produk">Detail</label>
+                    <textarea name="detail_produk" id="detail_produk" cols="30" rows="10" class="form-control"></textarea>
                 </div>
                 <div>
-                    <label for="ketersediaan_stok">Ketersediaan Stok</label>
-                    <select name="ketersediaan_stok" id="ketersediaan_stok" class="form-control">
-                        <option value="tersedia">tersedia</option>
-                        <option value="habis">habis</option>
-                    </select>
+                    <label for="ketersediaan_stok">ketersediaan_stok</label>
+                    <input type="number" name="ketersediaan_stok" id="ketersediaan_stok" class="form-control" autocomplete="off" required>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
@@ -106,27 +103,27 @@ function generateRandomString($length = 25)
 
             <?php
             if (isset($_POST['simpan'])) {
-                $nama = htmlspecialchars($_POST['nama']);
+                $nama_produk = htmlspecialchars($_POST['nama_produk']);
                 $kategori = htmlspecialchars($_POST['kategori']);
-                $harga = htmlspecialchars($_POST['harga']);
-                $detail = htmlspecialchars($_POST['detail']);
+                $harga_produk = htmlspecialchars($_POST['harga_produk']);
+                $detail_produk = htmlspecialchars($_POST['detail_produk']);
                 $ketersediaan_stok = htmlspecialchars($_POST['ketersediaan_stok']);
 
                 $target_dir = "uploads/";
-                $nama_file = basename($_FILES["foto"]["name"]);
+                $nama_file = basename($_FILES["foto_produk"]["name"]);
                 $target_file = $target_dir . $nama_file;
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                $image_size = $_FILES["foto"]["size"];
+                $image_size = $_FILES["foto_produk"]["size"];
                 $random_name = generateRandomString(20);
                 $new_name = $random_name . "." . $imageFileType;
 
 
 
 
-                if ($nama == '' || $kategori == '' || $harga == '') {
+                if ($nama_produk == '' || $kategori == '' || $harga_produk == '' || $ketersediaan_stok == '') {
             ?>
                     <div class="alert alert-warning mt-3" role="alert">
-                        Nama, Kategori dan Harga Wajib Diisi!
+                        Nama, Kategori, Harga, dan Stok Wajib Diisi!
                     </div>
                     <?php
                 } else {
@@ -145,13 +142,13 @@ function generateRandomString($length = 25)
                                 </div>
                         <?php
                             } else {
-                                move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $new_name);
+                                move_uploaded_file($_FILES["foto_produk"]["tmp_name"], $target_dir . $new_name);
                             }
                         }
                     }
 
                     //query insert to produk table
-                    $queryTambah = mysqli_query($mysqli, "INSERT INTO produk (kategori_id, nama, harga, foto, detail, ketersediaan_stok) VALUES ('$kategori', '$nama', '$harga', '$new_name', '$detail', '$ketersediaan_stok')");
+                    $queryTambah = mysqli_query($mysqli, "INSERT INTO produk ( nama_produk, kategori_id, harga_produk, foto_produk, detail_produk, ketersediaan_stok) VALUES ( '$nama_produk', '$kategori', '$harga_produk', '$new_name', '$detail_produk', '$ketersediaan_stok')");
 
                     if ($queryTambah) {
                         ?>
@@ -199,12 +196,12 @@ function generateRandomString($length = 25)
                             ?>
                                 <tr>
                                     <td><?php echo $jumlah; ?></td>
-                                    <td><?php echo $data['nama']; ?></td>
-                                    <td><?php echo $data['nama_kategori']; ?></td>
-                                    <td><?php echo $data['harga']; ?></td>
+                                    <td><?php echo $data['nama_produk']; ?></td>
+                                    <td><?php echo $data['kategori']; ?></td>
+                                    <td><?php echo $data['harga_produk']; ?></td>
                                     <td><?php echo $data['ketersediaan_stok']; ?></td>
                                     <td>
-                                        <a href="produk-detail.php?d=<?php echo $data['id']; ?>" class="btn btn-info"><i class="fas fa-search"></i></a>
+                                        <a href="produk-detail.php?d=<?php echo $data['id_produk']; ?>" class="btn btn-info"><i class="fas fa-search"></i></a>
                                     </td>
                                 </tr>
                         <?php

@@ -21,7 +21,10 @@
                     <a class="nav-link me-4" href="datamember.php">Data Member</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-4" href="order-detail.php">Order Masuk</a>
+                    <a class="nav-link me-4" href="order.php">Order Masuk</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-4" href="../index.php">Lihat Halaman Pengunjung</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link me-4" href="logout.php">Logout</a>

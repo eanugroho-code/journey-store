@@ -12,8 +12,11 @@ $jumlahProduk = mysqli_num_rows($queryProduk);
 $queryPromosi = mysqli_query($mysqli, "SELECT * FROM slides");
 $jumlahPromosi = mysqli_num_rows($queryPromosi);
 
-$queryMember = mysqli_query($mysqli, "SELECT * FROM user_info");
+$queryMember = mysqli_query($mysqli, "SELECT * FROM pelanggan");
 $jumlahMember = mysqli_num_rows($queryMember);
+
+$queryOrder = mysqli_query($mysqli, "SELECT * FROM pembelian");
+$jumlahOrder = mysqli_num_rows($queryOrder);
 
 
 ?>
@@ -113,7 +116,7 @@ $jumlahMember = mysqli_num_rows($queryMember);
                                 <i class="fa-solid fa-users-line fa-7x text-black-50"></i>
                             </div>
                             <div class="col-6 text-hite">
-                                <h3 class="fs-2">DataMember</h3>
+                                <h3 class="fs-2">DataUser</h3>
                                 <p class="fs-4"><?php echo $jumlahMember ?> Member</p>
                                 <p><a href="datamember.php" class="text-white no-decoration">Lihat Detail</a></p>
                             </div>
@@ -128,8 +131,8 @@ $jumlahMember = mysqli_num_rows($queryMember);
                             </div>
                             <div class="col-6 text-hite">
                                 <h3 class="fs-2">Pesanan</h3>
-                                <p class="fs-4">Order</p>
-                                <p><a href="order-detail.php" class="text-white no-decoration">Lihat Detail</a></p>
+                                <p class="fs-4"><?php echo $jumlahOrder ?> Order</p>
+                                <p><a href="order.php" class="text-white no-decoration">Lihat Detail</a></p>
                             </div>
                         </div>
                     </div>

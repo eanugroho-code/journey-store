@@ -1,8 +1,8 @@
 :root{
     --bg-body: #dff9fb;
-    --bg-nav: #220455;
-    --color-nav: #644c89;
-    --color-nav-hover: #dff9fb;
+    --bg-nav: #043655;
+    --color-nav: #2d815b;
+    --color-nav-hover: #c6fafd;
     --color-nav-active: #fff;
 }
 
@@ -24,7 +24,7 @@ body {
     position: fixed;
     bottom: 0;
     display: flex;
-    height: 75px;
+    height: 65px;
     background-color: var(--bg-nav);
     border-radius: 50px;
     border: 1px solid rgb(36, 139, 118);
@@ -34,7 +34,7 @@ body {
 .nav li a {
     text-decoration: none;
     color: var(--color-nav);
-    width:  78px;
+    width:  62px;
     height: 100%;
     display: inline-grid;
     place-items: center;
@@ -47,7 +47,7 @@ body {
 
 .nav li a .title {
     display: none;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .nav li a:hover {
@@ -56,8 +56,8 @@ body {
 
 .nav li a.nav-item-active {
     color: var(--color-nav-active);
-    transform: translateY(-9%);
-    font-size: 25px;
+    transform: translateY(-8%);
+    font-size: 20px;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -66,13 +66,13 @@ body {
 }
 
 .nav .nav-indicator {
-    width: 90px;
-    height: 90px;
-    border-radius: 40%;
+    width: 70px;
+    height: 70px;
+    border-radius: 60%;
     background-color: var(--bg-nav);
     position: absolute;
-    top: -10px;
-    left: calc(300px - 150px);
+    top: -15px;
+    left: calc(300px - 180px);
     transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -83,4 +83,26 @@ body {
 
 
     
- 
+@media only screen and (max-width: 360px) and (min-width: 300px) {
+    .nav li a {
+        text-decoration: none;
+        width:  52px;
+        height: 100%;
+        font-size: 20px;
+    }
+
+    .nav li a.nav-item-active {
+        transform: translateY(-8%);
+        font-size: 18px;
+    }
+
+
+.nav .nav-indicator {
+    width: 60px;
+    height: 60px;
+    border-radius: 60%;
+    top: -15px;
+    left: calc(300px - 200px);
+    transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+ }

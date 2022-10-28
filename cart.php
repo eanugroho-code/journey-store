@@ -35,15 +35,17 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
 </style>
 
 <body>
-
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="main">
         <div class="d-flex justify-content-between align-items-center">
-            <img src="image/headerjo.png" width="47px" height="50px" padding="0" alt="">
+            <div class="d-flex justify-content-between align-items-center">
+                <img src="image/headerjo.png" width="47px" height="50px" padding="0" alt="">
 
+            </div>
+            <h2 class="text-brand">
+                Journey <span>Store</span>
+            </h2>
         </div>
-        <h2 class="text-brand">
-            Journey <span>Store</span>
-        </h2>
+        <?php require "navbarbotom.php"; ?>
     </div>
 
     <section class="kontent">
@@ -74,7 +76,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                         ?>
                         <tr>
                             <td><?php echo $nomor; ?></td>
-                            <td><?php echo $pecah["nama_produk"]; ?><br><?php echo $pecah["detail_produk"]; ?></td>
+                            <td><?php echo $pecah["nama_produk"]; ?></td>
                             <td><?php echo number_format($pecah["harga_produk"]); ?></td>
                             <td><?php echo $jumlah; ?></td>
                             <td><?php echo number_format($subharga); ?></td>
@@ -86,7 +88,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                                 </a>
                                 <br>
                                 <br>
-                                <a href="#">
+                                <a href="cart-detail.php?id=<?php echo $pecah["id_produk"]; ?>">
                                     <box-icon name='search-alt' animation='tada'>
                                         <i class='bx bx-search-alt bx-tada-hover bx-xs'></i>
                                     </box-icon>
@@ -105,8 +107,9 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
         <br>
         <br>
         <br>
-        <?php require "navbarbotom.php"; ?>
+
     </section>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 

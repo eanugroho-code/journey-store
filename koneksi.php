@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "", "journey_store");
+$mysqli = new mysqli("localhost", "root", "", "journeyo_store");
 
 // Check connection
 if ($mysqli->connect_errno) {

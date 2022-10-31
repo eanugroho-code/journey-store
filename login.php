@@ -48,7 +48,7 @@
          }
 
          if (isset($_SESSION['valid'])) {
-            header('Location: https://journeyofficial.info/');
+            header('Location: https://www.journeyofficial.info/JOURNEYSTORE/');
          }
       }
    } else {

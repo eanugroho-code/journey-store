@@ -6,6 +6,7 @@ $id = $_SESSION['id_pelanggan'];
 
 if (!isset($id)) {
    header('location:index.php');
+   // nanti ubah ke alamat
 };
 
 if (isset($_GET['logout'])) {

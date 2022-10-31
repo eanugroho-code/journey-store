@@ -49,6 +49,7 @@
 
          if (isset($_SESSION['valid'])) {
             header('Location: https://journeyofficial.info/JOURNEYSTORE/index.php');
+            exit;
          }
       }
    } else {

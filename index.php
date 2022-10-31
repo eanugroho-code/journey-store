@@ -5,7 +5,8 @@ session_start();
 $id = $_SESSION['id_pelanggan'];
 
 if (!isset($id)) {
-   header('location:index.php');
+   header('location: https://journeyofficial.info/JOURNEYSTORE/index.php');
+   exit;
    // nanti ubah ke alamat
 };
 

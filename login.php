@@ -48,7 +48,7 @@
          }
 
          if (isset($_SESSION['valid'])) {
-            header('Location: index.php');
+            header('Location: https://journeyofficial.info/');
          }
       }
    } else {

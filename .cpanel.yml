@@ -1,0 +1,39 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/journeyo/public_html/
+    - /bin/cp index.php $DEPLOYPATH
+    - /bin/cp style.css $DEPLOYPATH
+    - /bin/cp login.php $DEPLOYPATH
+    - /bin/cp account.php $DEPLOYPATH
+    - /bin/cp beli.php $DEPLOYPATH
+    - /bin/cp cart_delete.php $DEPLOYPATH
+    - /bin/cp cart-detail.php $DEPLOYPATH
+    - /bin/cp cart.php $DEPLOYPATH
+    - /bin/cp cart.js $DEPLOYPATH
+    - /bin/cp checkout.php $DEPLOYPATH
+    - /bin/cp cs.php $DEPLOYPATH
+    - /bin/cp detail-produk.php $DEPLOYPATH
+    - /bin/cp detail.css $DEPLOYPATH
+    - /bin/cp help.php $DEPLOYPATH
+    - /bin/cp koneksi.php $DEPLOYPATH
+    - /bin/cp navbarbotom.php $DEPLOYPATH
+    - /bin/cp navbarbotom.css $DEPLOYPATH
+    - /bin/cp navbarbotom.js $DEPLOYPATH
+    - /bin/cp nota.php $DEPLOYPATH
+    - /bin/cp promosi.php $DEPLOYPATH
+    - /bin/cp register.php $DEPLOYPATH
+    - /bin/cp riwayat.php $DEPLOYPATH
+    - /bin/cp session.php $DEPLOYPATH
+    - /bin/cp sweatalert.min.js $DEPLOYPATH
+    - /bin/cp -R journeyadmin/stylelogin.css $DEPLOYPATH
+    - /bin/cp -R journeyadmin/uploads $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R bootstrap $DEPLOYPATH
+    - /bin/cp -R cartcontrroller $DEPLOYPATH
+    - /bin/cp -R fontawesome $DEPLOYPATH
+    - /bin/cp -R journeyadmin/uploads $DEPLOYPATH
+    - /bin/cp -R image $DEPLOYPATH
+    - /bin/cp -R journeyadmin $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
+    - /bin/cp -R popup $DEPLOYPATH

@@ -51,9 +51,9 @@ while ($row = mysqli_fetch_array($query)) {
 </head>
 
 <style>
-  .carousel {
+  carousel {
     width: auto;
-    height: 225px;
+    height: 150px;
     box-shadow: 0px 5px 20px #1ac584;
   }
 </style>

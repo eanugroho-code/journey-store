@@ -26,7 +26,7 @@ deployment:
     - /bin/cp riwayat.php $DEPLOYPATH
     - /bin/cp session.php $DEPLOYPATH
     - /bin/cp sweatalert.min.js $DEPLOYPATH
-    - /bin/cp -R journeyadmin/stylelogin.css $DEPLOYPATH
+    - /bin/cp journeyadmin $DEPLOYPATH
     - /bin/cp -R journeyadmin/uploads $DEPLOYPATH
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R bootstrap $DEPLOYPATH

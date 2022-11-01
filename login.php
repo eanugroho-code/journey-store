@@ -30,7 +30,7 @@
       if ($email == "" || $pass == "") {
          echo "Either username or password field is empty.";
          echo "<br/>";
-         echo "<a href='session.php'>Go back</a>";
+         echo "<a href='login.php'>Go back</a>";
       } else {
          $result = mysqli_query($mysqli, "SELECT * FROM pelanggan WHERE email_pelanggan='$email' AND password=md5('$pass')")
             or die("Could not execute the select query.");

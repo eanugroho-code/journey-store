@@ -11,5 +11,3 @@ if ($_SESSION['browser'] != md5($_SERVER['HTTP_USER_AGENT']) || $_SESSION['IP'] 
     header("Location: login.php");
     exit;
 }
-echo "<script>alert('selamat datang')</script>";
-echo "<script>location='index.php'</script>";

@@ -4,13 +4,9 @@ require 'koneksi.php';
 session_start();
 $id = $_SESSION['id_pelanggan'];
 
-if (empty($_SESSION['id_pelanggan'])) {
-   header("Location: login.php");
+if (!isset($id)) {
+   header('location:index.php');
 }
-
-// if (!isset($id)) {
-//    header('location:index.php');
-// }
 
 if (isset($_GET['logout'])) {
    unset($user_id);

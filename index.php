@@ -11,7 +11,7 @@ if (!isset($id)) {
 if (isset($_GET['logout'])) {
    unset($user_id);
    session_destroy();
-   header('location:https://journeyofficial.info/JOURNEY%20STORE/login.php');
+   header('location:login.php');
 };
 
 include "journeyadmin/includes/db.php";

@@ -3,6 +3,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/journeyo/public_html/
     - /bin/cp index.php $DEPLOYPATH
+    - /bin/cp product.php $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
     - /bin/cp login.php $DEPLOYPATH
     - /bin/cp account.php $DEPLOYPATH

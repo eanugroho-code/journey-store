@@ -14,38 +14,38 @@ if (isset($_GET['logout'])) {
    header('location:login.php');
 };
 
-include "journeyadmin/includes/db.php";
-$sql = "SELECT * FROM slides order by id desc limit 4";
+// include "journeyadmin/includes/db.php";
+// $sql = "SELECT * FROM slides order by id desc limit 4";
 
-$query = mysqli_query($conn, $sql);
+// $query = mysqli_query($conn, $sql);
 
-$li = "";
-$i = 0;
-
-
-$div = "";
-while ($row = mysqli_fetch_array($query)) {
-
-   if ($i == 0) {
+// $li = "";
+// $i = 0;
 
 
-      $li .= '<li data-target="#carouselExampleIndicators" data-slide-to="' . $i . '" class="active"></li>';
+// $div = "";
+// while ($row = mysqli_fetch_array($query)) {
 
-      $div .= '<div class="carousel-item active">
-      <img src="journeyadmin/images/' . $row['image'] . '" class="d-block w-100" alt="...">
-    ';
-   } else {
-      $li .= '<li data-target="#carouselExampleIndicators" data-slide-to="' . $i . '"></li>';
+//    if ($i == 0) {
 
-      $div .= '<div class="carousel-item ">
-      <img src="journeyadmin/images/' . $row['image'] . '" class="d-block w-100" alt="...">
-    ';
-   }
 
-   $div .= '</div>';
+//       $li .= '<li data-target="#carouselExampleIndicators" data-slide-to="' . $i . '" class="active"></li>';
 
-   $i++;
-}
+//       $div .= '<div class="carousel-item active">
+//       <img src="journeyadmin/images/' . $row['image'] . '" class="d-block w-100" alt="...">
+//     ';
+//    } else {
+//       $li .= '<li data-target="#carouselExampleIndicators" data-slide-to="' . $i . '"></li>';
+
+//       $div .= '<div class="carousel-item ">
+//       <img src="journeyadmin/images/' . $row['image'] . '" class="d-block w-100" alt="...">
+//     ';
+//    }
+
+//    $div .= '</div>';
+
+//    $i++;
+// }
 
 
 ?>

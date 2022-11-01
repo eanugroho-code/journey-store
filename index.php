@@ -5,13 +5,13 @@ session_start();
 $id = $_SESSION['id_pelanggan'];
 
 if (!isset($id)) {
-   header('location:index.php');
+   header('location:https://journeyofficial.info/JOURNEY%20STORE/index.php');
 };
 
 if (isset($_GET['logout'])) {
    unset($user_id);
    session_destroy();
-   header('location:login.php');
+   header('location:https://journeyofficial.info/JOURNEY%20STORE/login.php');
 };
 
 include "journeyadmin/includes/db.php";

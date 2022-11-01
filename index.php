@@ -5,7 +5,7 @@ session_start();
 $id = $_SESSION['id_pelanggan'];
 
 if (!isset($id)) {
-   header('location:https://journeyofficial.info/JOURNEY%20STORE/index.php');
+   header('location:https://journeyofficial.info/JOURNEY%20STORE/login.php');
 };
 
 if (isset($_GET['logout'])) {

@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <html>
 
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,7 +49,7 @@
          }
 
          if (isset($_SESSION['valid'])) {
-            header('Location: index.php');
+            header('Location: http://journeyofficial.info/JOURNEY%20STORE/');
          }
       }
    } else {

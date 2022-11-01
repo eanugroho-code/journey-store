@@ -5,7 +5,7 @@ session_start();
 $id = $_SESSION['id_pelanggan'];
 
 if (!isset($id)) {
-   header('location: index.php');
+   header('location:index.php');
 };
 
 if (isset($_GET['logout'])) {

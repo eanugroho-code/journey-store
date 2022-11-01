@@ -1,5 +1,5 @@
 <?php
-$host = "localhost:3306";
+$host = "localhost";
 $user = "journeyo_store";
 $pass = "40196Ean!";
 $db = "journeyo_store";

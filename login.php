@@ -49,7 +49,7 @@
          }
 
          if (isset($_SESSION['valid'])) {
-            header('Location: http://journeyofficial.info/JOURNEY%20STORE/');
+            header('Location: http://journeyofficial.info/JOURNEY%20STORE/index.php');
          }
       }
    } else {

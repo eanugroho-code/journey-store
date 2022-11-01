@@ -4,9 +4,8 @@ require 'koneksi.php';
 session_start();
 $id = $_SESSION['id_pelanggan'];
 
-if (!isset($id)) {
-    header('location:index.php');
-};
+
+
 
 $query = mysqli_query($mysqli, "SELECT * FROM pelanggan WHERE id_pelanggan='$id'");
 $data = mysqli_fetch_array($query);
@@ -39,6 +38,7 @@ $data = mysqli_fetch_array($query);
 </style>
 
 <body>
+
     <div class="main m-auto">
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-between align-items-center">
@@ -58,9 +58,13 @@ $data = mysqli_fetch_array($query);
                         </i></a>
                 </div>
                 <div class="col">
-                    <i class='bx bx-receipt'>
-                        Status Pesanan
-                    </i>
+                    <div class="alert alert-danger" role="alert">
+                        <?php if (isset($_SESSION["id_pelanggan"])) : ?>
+                            <li><i class='bx bx-log-out'> <a href="logout.php"> Logout </a> </i></li>
+                        <?php else : ?>
+                            <li><i class='bx bx-log-in'> <a href="login.php"> Login </a> </i></li>
+                        <?php endif ?>
+                    </div>
                 </div>
                 <div class="col">
                     <a href=""><i class='bx bx-send bx-fade-right'>Proses Pesanan</i></a>
@@ -68,9 +72,18 @@ $data = mysqli_fetch_array($query);
             </div>
         </div>
         <div class="container mt-5">
+            <?php if (empty($_SESSION["id_pelanggan"]) or !isset($_SESSION["id_pelanggan"])) {
+            ?>
+                <div class="alert alert-info mt-3" role="alert">
+                    silahkan login terlebih dahulu untuk melihat riwayat transaksi mu ...
+                </div>
+            <?php
+                // echo "<script>alert('silahkan login terlebih dahulu untuk melihat riwayat transaksi mu');</script>";
+            } ?>
             <h2>Info Profil</h2>
             <br>
             <div class="col-12">
+
                 <form action="" method="post">
                     <div>
                         <label for="name">Username</label>
@@ -98,6 +111,8 @@ $data = mysqli_fetch_array($query);
 
             </div>
         </div>
+
+
         <br>
         <?php require "navbarbotom.php"; ?>
     </div>

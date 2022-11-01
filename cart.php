@@ -36,79 +36,71 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
 
 <body>
     <div class="main">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex justify-content-between align-items-center">
-                <img src="image/headerjo.png" width="47px" height="50px" padding="0" alt="">
+        <?php require "navbarbotom.php"; ?>
+
+        <section class="kontent">
+            <div class="container">
+                <h1>My Cart</h1>
+                <hr>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-white bg-dark">No.</th>
+                            <th class="text-white bg-dark">Produk</th>
+                            <th class="text-white bg-dark">Hrg</th>
+                            <th class="text-white bg-dark">Jmlh</th>
+                            <th class="text-white bg-dark">Sub</th>
+                            <th class="text-white bg-dark">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $nomor = 1; ?>
+                        <?php foreach ($_SESSION["keranjang"] as $id_produk => $jumlah) : ?>
+                            <?php
+                            $ambil = $mysqli->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+                            $pecah = $ambil->fetch_assoc();
+                            $subharga = $pecah["harga_produk"] * $jumlah;
+                            // echo "<pre>";
+                            // print_r($pecah);
+                            // echo "</pre>";
+                            ?>
+                            <tr>
+                                <td class="text-white bg-dark"><?php echo $nomor; ?></td>
+                                <td class="text-white bg-dark"><?php echo $pecah["nama_produk"]; ?></td>
+                                <td class="text-white bg-dark text-center"><?php echo number_format($pecah["harga_produk"]); ?></td>
+                                <td class="text-white bg-dark text-center"><?php echo $jumlah; ?></td>
+                                <td class="text-white bg-dark text-center"><?php echo number_format($subharga); ?></td>
+                                <td class="text-center">
+                                    <a href="cart_delete.php?id=<?php echo $id_produk ?>">
+                                        <box-icon name='trash' animation='tada-hover' style='color:#e80101'>
+                                            <i class='bx bxs-trash bx-tada-hover bx-xs'></i>
+                                        </box-icon>
+                                    </a>
+                                    <br>
+                                    <a href="cart-detail.php?id=<?php echo $pecah["id_produk"]; ?>">
+                                        <box-icon name='search-alt' animation='tada'>
+                                            <i class='bx bx-search-alt bx-tada-hover bx-xs'></i>
+                                        </box-icon>
+                                    </a>
+                                </td>
+
+                            </tr>
+                            <?php $nomor++; ?>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+                <a href="checkout.php" class="btn btn-success">Checkout</a>
+                <a href="index.php" class="btn btn-info">Tambah Item</a>
 
             </div>
-            <h2 class="text-brand">
-                Journey <span>Store</span>
-            </h2>
-        </div>
-        <?php require "navbarbotom.php"; ?>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        </section>
     </div>
 
-    <section class="kontent">
-        <div class="container">
-            <h1>My Cart</h1>
-            <hr>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Produk</th>
-                        <th>Harga</th>
-                        <th>Jumlah</th>
-                        <th>Subharga</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $nomor = 1; ?>
-                    <?php foreach ($_SESSION["keranjang"] as $id_produk => $jumlah) : ?>
-                        <?php
-                        $ambil = $mysqli->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
-                        $pecah = $ambil->fetch_assoc();
-                        $subharga = $pecah["harga_produk"] * $jumlah;
-                        // echo "<pre>";
-                        // print_r($pecah);
-                        // echo "</pre>";
-                        ?>
-                        <tr>
-                            <td><?php echo $nomor; ?></td>
-                            <td><?php echo $pecah["nama_produk"]; ?></td>
-                            <td><?php echo number_format($pecah["harga_produk"]); ?></td>
-                            <td><?php echo $jumlah; ?></td>
-                            <td><?php echo number_format($subharga); ?></td>
-                            <td>
-                                <a href="cart_delete.php?id=<?php echo $id_produk ?>">
-                                    <box-icon name='trash' animation='tada-hover' style='color:#e80101'>
-                                        <i class='bx bxs-trash bx-tada-hover bx-xs'></i>
-                                    </box-icon>
-                                </a>
-                                <br>
-                                <br>
-                                <a href="cart-detail.php?id=<?php echo $pecah["id_produk"]; ?>">
-                                    <box-icon name='search-alt' animation='tada'>
-                                        <i class='bx bx-search-alt bx-tada-hover bx-xs'></i>
-                                    </box-icon>
-                                </a>
-                            </td>
-                        </tr>
-                        <?php $nomor++; ?>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
-            <a href="checkout.php" class="btn btn-success">Checkout</a>
-            <a href="index.php" class="btn btn-info">Tambah Item</a>
-
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-
-    </section>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>

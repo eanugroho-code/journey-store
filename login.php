@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php require 'koneksi.php' ?>
 <html>
 
 
@@ -21,7 +22,6 @@
 
 <body>
    <?php
-   include("koneksi.php");
 
    if (isset($_POST['submit'])) {
       $email = mysqli_real_escape_string($mysqli, $_POST['email_pelanggan']);
@@ -43,13 +43,13 @@
             $_SESSION['nama_pelanggan'] = $row['nama_pelanggan'];
             $_SESSION['id_pelanggan'] = $row['id_pelanggan'];
          } else {
-            echo "Invalid username or password.";
+            echo "<script>alert('Invalid username or password');</script>";
             echo "<br/>";
-            echo "<a href='login.php'>Go back</a>";
+            echo "<script>location='login.php';</script>";
          }
 
          if (isset($_SESSION['valid'])) {
-            header('Location: index.php');
+            header('Location: checkout.php');
          }
       }
    } else {

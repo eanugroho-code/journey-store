@@ -73,7 +73,6 @@ session_start();
                                 <td class="text-white bg-dark">Rp. <?php echo number_format($data["total_pembelian"]) ?></td>
                                 <td class="text-white bg-dark">
                                     <a href="nota.php?id=<?php echo $data["id_pembelian"] ?>" class="btn btn-info">Nota</a>
-                                    <a href="" class="btn btn-danger">Pembayaran</a>
                                 </td>
                             </tr>
                             <?php $nomor++; ?>

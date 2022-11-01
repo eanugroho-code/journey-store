@@ -2,6 +2,10 @@
 
 require 'koneksi.php';
 session_start();
+if (!isset($_SESSION["id_pelanggan"])) {
+    echo "<script>alert ('silahkan login terlebih dahulu');</script>";
+    echo "<script>location='login.php';</script>";
+}
 $id = $_SESSION['id_pelanggan'];
 
 $query = mysqli_query($mysqli, "SELECT * FROM pelanggan WHERE id_pelanggan='$id'");
@@ -26,12 +30,14 @@ $data = mysqli_fetch_array($query);
 <body>
     <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex justify-content-between align-items-center">
-            <img src="image/headerjo.png" width="47px" height="50px" padding="0" alt="">
+            <img src=" image/headerjo.png" width="47px" height="50px" padding="0">
 
         </div>
-        <h2 class="text-brand">
-            Journey <span>Store</span>
-        </h2>
+        <a href="index.php">
+            <h2 class="text-brand">
+                Journey <span>Store</span>
+            </h2>
+        </a>
     </div>
 
     <section class="konten">

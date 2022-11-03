@@ -1,5 +1,5 @@
 <?php
-include "journeyadmin/includes/db.php";
+include "koneksi.php";
 
 $sql = "SELECT * FROM slides order by id desc limit 4";
 

@@ -129,6 +129,7 @@ while ($row = mysqli_fetch_array($query)) {
       <section>
          <?php require "navbarbotom.php"; ?>
       </section>
+      
    </div>
 
 

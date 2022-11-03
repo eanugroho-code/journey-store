@@ -70,6 +70,11 @@
         line-height: 2rem;
         border-top: 1px solid #fff;
     }
+    footer {
+        text-align: center;
+        padding: 3px;
+        color: white;
+    }
 
     footer .header::after {
         display: none;
@@ -141,16 +146,16 @@
         <br>
         <br>
         <footer>
-            <div class="content">
-                <div class="header">
-                    PENGEMBANG APLIKASI
-                    <div class="d-flex">
-                        <a href="https://journeyean.github.io/resume-eanugroho/">
-                            <i class='bx bx-send bx-fade-right'> Journey. ea</i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+            <p>Author: Journey Official<br>
+
+                <a href="mailto:journeyofficial96@gmail.com">journeyofficial96@gmail.com</a>
+            </p>
+            <p>Pengembang aplikasi <br>
+                <a href="https://journeyean.github.io/resume-eanugroho/">
+                    <i class='bx bx-send bx-fade-right'> Journey. ea</i>
+                </a>
+            </p>
         </footer>
     </div>
 

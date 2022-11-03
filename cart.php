@@ -7,10 +7,7 @@ require 'koneksi.php';
 // echo "</pre>";
 $_SESSION['pelanggan'];
 
-if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
-    echo "<script>alert('keranjang kosong, silahkan pilih produk');</script>";
-    echo "<script>location='index.php';</script>";
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +34,17 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
 <body>
     <div class="main">
         <?php require "navbarbotom.php"; ?>
+        <?php
+        if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
+        ?>
+            <div class="alert alert-info mt-3" role="alert">
+                silahkan login terlebih dahulu untuk melihat riwayat transaksi mu ...
+            </div>
+            <meta http-equiv="refresh" content="2; url=index.php" />
+
+        <?php
+        }
+        ?>
 
         <section class="kontent">
             <div class="container">

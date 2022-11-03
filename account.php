@@ -77,6 +77,7 @@ $data = mysqli_fetch_array($query);
                 <div class="alert alert-info mt-3" role="alert">
                     silahkan login terlebih dahulu untuk melihat riwayat transaksi mu ...
                 </div>
+
             <?php
                 // echo "<script>alert('silahkan login terlebih dahulu untuk melihat riwayat transaksi mu');</script>";
             } ?>

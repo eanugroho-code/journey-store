@@ -28,9 +28,16 @@
       $pass = mysqli_real_escape_string($mysqli, $_POST['password']);
 
       if ($email == "" || $pass == "") {
-         echo "Either username or password field is empty.";
-         echo "<br/>";
-         echo "<a href='login.php'>Go back</a>";
+   ?>
+         <div class="alert alert-danger text-center" role="alert">
+            Either username or password field is empty
+         </div>
+         <meta http-equiv="refresh" content="2; url=login.php" />
+
+         <?php
+         // echo "Either username or password field is empty.";
+         // echo "<br/>";
+         // echo "<a href='login.php'>Go back</a>";
       } else {
          $result = mysqli_query($mysqli, "SELECT * FROM pelanggan WHERE email_pelanggan='$email' AND password=md5('$pass')")
             or die("Could not execute the select query.");
@@ -43,23 +50,38 @@
             $_SESSION['nama_pelanggan'] = $row['nama_pelanggan'];
             $_SESSION['id_pelanggan'] = $row['id_pelanggan'];
          } else {
-            echo "<script>alert('Invalid username or password');</script>";
-            echo "<br/>";
-            echo "<script>location='login.php';</script>";
+         ?>
+            <div class="alert alert-danger text-center" role="alert">
+               Either username or password field is empty
+            </div>
+            <meta http-equiv="refresh" content="2; url=login.php" />
+
+         <?php
+            // echo "<script>alert('Invalid username or password');</script>";
+            // echo "<br/>";
+            // echo "<script>location='login.php';</script>";
          }
 
          if (isset($_SESSION['valid'])) {
-            header('Location: checkout.php');
+         ?>
+            <div class="alert alert-info mt-3" role="alert">
+               Anda Sukses Login,
+               SELAMAT BERBELANJA...
+            </div>
+            <meta http-equiv="refresh" content="2; url=index.php" />
+
+      <?php
+            // header('Location: index.php');
          }
       }
    } else {
-   ?>
+      ?>
       <div class="main-login">
          <div class="left-login">
             <h1>Login<br>Member Area</h1>
             <img src="./image/loginmember.svg" alt="freepik_stories-process">
          </div>
-         <form name="form1" action="" method="post">
+         <form name="form1" action="index.php" method="post">
             <div class="right-login">
                <div class="card-login">
                   <h1>LOGIN</h1>

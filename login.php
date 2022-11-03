@@ -81,7 +81,7 @@
             <h1>Login<br>Member Area</h1>
             <img src="./image/loginmember.svg" alt="freepik_stories-process">
          </div>
-         <form name="form1" action="index.php" method="post">
+         <form name="form1" action="" method="post">
             <div class="right-login">
                <div class="card-login">
                   <h1>LOGIN</h1>

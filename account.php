@@ -49,16 +49,17 @@ $data = mysqli_fetch_array($query);
                 Journey <span>Store</span>
             </h2>
         </div>
-        <?php require "promosi.php" ?>
         <br>
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <a href="riwayat.php"><i class='bx bx-package bx-tada bx-rotate-180'> Riwayat Transaksi
-                        </i></a>
+                    <div class="alert alert-danger" role="alert">
+                        <a href="riwayat.php"><i class='bx bx-package bx-tada bx-rotate-180'> Riwayat Transaksi
+                            </i></a>
+                    </div>
                 </div>
                 <div class="col">
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-warning" role="alert">
                         <?php if (isset($_SESSION["id_pelanggan"])) : ?>
                             <li><i class='bx bx-log-out'> <a href="logout.php"> Logout </a> </i></li>
                         <?php else : ?>
@@ -67,7 +68,9 @@ $data = mysqli_fetch_array($query);
                     </div>
                 </div>
                 <div class="col">
-                    <a href=""><i class='bx bx-send bx-fade-right'>Proses Pesanan</i></a>
+                    <div class="alert alert-success" role="alert">
+                        <a href=""><i class='bx bx-send bx-fade-right'>Proses Pesanan</i></a>
+                    </div>
                 </div>
             </div>
         </div>

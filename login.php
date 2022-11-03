@@ -68,7 +68,7 @@
                Anda Sukses Login,
                SELAMAT BERBELANJA...
             </div>
-            <meta http-equiv="refresh" content="2; url=index.php" />
+            <meta http-equiv="refresh" content="2; url=account.php" />
 
       <?php
             // header('Location: index.php');

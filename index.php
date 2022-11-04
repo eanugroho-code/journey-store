@@ -85,9 +85,19 @@ while ($row = mysqli_fetch_array($query)) {
          </div>
 
          <h3><?php echo $fetch_user['nama_pelanggan']; ?> </h3>
-         </a>
       </div>
-
+      <br>
+      <a href="#">
+         <button class="btn-floating">
+            <i class='bx bx-search-alt-2' style='color:#07a451'></i>
+            <span>
+               <form action="" method="get">
+                  <input type="text" class="form-control" value="Mau Cari apa hari ini?">
+               </form>
+            </span>
+         </button>
+      </a>
+      <br>
       <?php require "promosi.php"; ?>
 
       <!-- popup -->
@@ -129,7 +139,7 @@ while ($row = mysqli_fetch_array($query)) {
       <section>
          <?php require "navbarbotom.php"; ?>
       </section>
-      
+
    </div>
 
 

@@ -16,15 +16,15 @@
         <ul class="nav">
             <span class="nav-indicator"> </span>
             <li>
-                <a href="#">
-                    <i class="bx bx-search"></i>
-                    <span class="title">Cari</span>
-                </a>
-            </li>
-            <li>
                 <a href="help.php">
                     <i class="bx bx-help-circle"></i>
                     <span class="title">Help</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-gift'></i>
+                    <span class="title">Gift</span>
                 </a>
             </li>
             <li>

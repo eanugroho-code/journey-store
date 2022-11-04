@@ -157,6 +157,9 @@
                 </a>
             </p>
         </footer>
+        <section>
+         <?php require "navbarbotom.php"; ?>
+      </section>
     </div>
 
 

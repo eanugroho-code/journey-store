@@ -55,9 +55,11 @@ require "../koneksi.php";
                         </tr>
                     </thead>
                     <tbody>
+                        <?php echo $total; ?>
                         <?php $nomor = 1; ?>
                         <?php $ambil = $mysqli->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan"); ?>
                         <?php while ($pecah = $ambil->fetch_assoc()) { ?>
+                            <?php $total+=$pecah['total_pembelian'] ?>
                             <tr>
                                 <td><?php echo $nomor; ?></td>
                                 <td><?php echo $pecah['nama_pelanggan']; ?></td>
@@ -74,6 +76,12 @@ require "../koneksi.php";
                             <?php $nomor++; ?>
                         <?php } ?>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="5">total_pembelian</th>
+                            <th>Rp. <?php echo number_format($total) ?></th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

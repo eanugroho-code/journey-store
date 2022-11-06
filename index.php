@@ -91,8 +91,8 @@ while ($row = mysqli_fetch_array($query)) {
          <button class="btn-floating">
             <i class='bx bx-search-alt-2' style='color:#07a451'></i>
             <span>
-               <form action="" method="get">
-                  <input type="text" class="form-control" value="Mau Cari apa hari ini?">
+               <form action="floating-search.php" method="get" class="search-form">
+                  <input type="text" class="form-control" name="keyword">
                </form>
             </span>
          </button>

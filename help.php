@@ -122,8 +122,8 @@
                 </details>
                 <details>
                     <summary> Syarat & Ketentuan Metode Refund serta Informasi Lainnya </summary>
-                    <p class="text">Jika ada pertanyaan, silakan hubungi Whatsapp Customer Service Segari untuk bantuan lebih lanjut.</p>
-                    <p class="text">WhatsApp: 081383796300</p>
+                    <p class="text">Jika ada pertanyaan, silakan hubungi Whatsapp Customer Service JourneyStore untuk bantuan lebih lanjut.</p>
+                    <p class="text"><a href="https://wa.me/6281383796300?Htext=Hi,JourneyStore" style="display: table; font-family: sans-serif; text-decoration: none; margin: 1em auto; color: #fff; font-size: 0.9em; padding: 1em 2em 1em 3.5em; border-radius: 2em; font-weight: bold; background: #25d366 url('https://tochat.be/click-to-chat-directory/css/whatsapp.svg') no-repeat 1.5em center; background-size: 1.6em;">Hubungi Kami</a></p>
                 </details>
             </div>
         </div>

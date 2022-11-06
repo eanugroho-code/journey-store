@@ -12,9 +12,5 @@
     <h1>Customer Service</h1>
 </body>
 
-<h2>gabung bersama kami <a href="register.php" class="no-decoration text-white">
-        <h1>DISINI</h1>
-    </a>
-</h2>
 
 </html>

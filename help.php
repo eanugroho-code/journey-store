@@ -15,61 +15,48 @@
 
 </head>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+
     .no-decoration {
         text-decoration: none;
     }
 
-    form div {
-        width: 200px;
+    .box {
+        margin: 50px auto;
+        background: #9872;
+        border-radius: 4px;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
     }
 
-    .container {
-        width: 100%;
-        max-width: 1000px;
-        margin: 2rem auto;
+    .box .heading {
+        background: #7800cf;
+        border-radius: 7px 7px 0px 0px;
+        padding: 10px;
+        color: #fff;
+        text-align: center;
+
     }
 
-    .content {
-        background-color: white;
-        color: black;
-        margin: 0.8rem 0;
-        border-radius: 0.5rem;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 9, 0.25);
+    .faqs {
+        padding: 0px 17px 17px;
     }
 
-    .header {
-        padding: 0.5rem 3rem 0.5rem 1rem;
-        min-height: 3.5rem;
-        line-height: 1.25rem;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
+    ::-webkit-details-marker {
+        float: right;
+        margin-top: 3px;
     }
 
-    .header::after {
-        content: "\002b";
-        font-size: 2rem;
-        position: absolute;
-        right: 1rem;
+    details {
+        background: #9872;
+        padding: 8px;
+        border-radius: 8px;
+        margin-top: 15px;
+        font-family: "Rubik";
+        font-size: 15px;
     }
 
-    .header.active::before {
-        content: "\2212";
-    }
-
-    .body {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-    }
-
-    .body-content {
-        padding: 1rem;
-        line-height: 2rem;
-        border-top: 1px solid #fff;
-    }
     footer {
         text-align: center;
         padding: 3px;
@@ -93,52 +80,51 @@
                 Journey <span>Store</span>
             </h2>
         </div>
-        <h2>FAQ</h2>
 
-        <div class="container mt-5">
-
-            <div class="content">
-                <div class="header">
-                    Bagaimana cara mengecek riwayat pesanan saya?
-                </div>
-                <div class="body">
-                    <div class="body-content">
-                        Anda dapat melihat riwayat pesanan Anda dengan browsing pada link: <a href="riwayat.php"></a>.
-                    </div>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="header">
-                    Bagaimana cara mengecek riwayat pesanan saya?
-                </div>
-                <div class="body">
-                    <div class="body-content">
-                        Anda dapat melihat riwayat pesanan Anda dengan browsing pada link: <a href="riwayat.php"></a>.
-                    </div>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="header">
-                    Bagaimana cara mengecek riwayat pesanan saya?
-                </div>
-                <div class="body">
-                    <div class="body-content">
-                        Anda dapat melihat riwayat pesanan Anda dengan browsing pada link: <a href="riwayat.php"></a>.
-                    </div>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="header">
-                    Bagaimana cara mengecek riwayat pesanan saya?
-                </div>
-                <div class="body">
-                    <div class="body-content">
-                        Anda dapat melihat riwayat pesanan Anda dengan browsing pada link: <a href="riwayat.php"></a>.
-                    </div>
-                </div>
+        <div class="box">
+            <p class="heading">FAQs</p>
+            <div class="faqs">
+                <details>
+                    <summary> Bagaimana cara berbelanja di Journey Store?</summary>
+                    <p class="text">kamu dapat mengklik tombol keranjang berwarna hijau dan kamu akan dialihkan ke halaman keranjang setelah itu kamu dapat checkout untuk melanjutkan transaksi,
+                        pemesanan sebelum pukul 23:59 setiap harinya, agar pesanan dapat dikirimkan keesokan harinya,
+                        JourneyStore akan melakukan pengantaran pesanan keesokan harinya mulai jam 07:00, dan paling telat jam 15.00
+                        Ambil pesanan Anda dari driver dan bayar setelah pesanan Anda sampai
+                    </p>
+                </details>
+                <details>
+                    <summary> Bagaimana cara memesan produk lebih dari 1?</summary>
+                    <p class="text">silahkan klik pada gambar produk lalu , isikan jumlah quantity yang kamu inginkan...</p>
+                </details>
+                <details>
+                    <summary> Bagaimana cara mendapatkan akun untuk login ?</summary>
+                    <p class="text">silahkan kamu beralih ke halaman account lalu kamu klik login, setelah itu kamu registrasi di bawah tulisan tombol login.</p>
+                </details>
+                <details>
+                    <summary> Bagaimana Cara untuk bertransaksi ?</summary>
+                    <p class="text">Journey Store menggunakan sistem Cash On Delivery COD.</p>
+                </details>
+                <details>
+                    <summary> Kapan pengantaran dilakukan oleh JourneyStore?</summary>
+                    <p class="text">Pengantaran dilakukan keesokan harinya dan akan sampai di tempat Anda jam 07:00-15:00.</p>
+                </details>
+                <details>
+                    <summary>Bagaimana jika saya ingin mengubah/membatalkan pesanan saya?</summary>
+                    <p class="text">Anda tidak bisa mengubah/membatalkan untuk sebagian pesanan saja. Namun, Anda bisa membatalkan seluruh pesanan dengan memberi tahu ke CS kami di nomor 081383796300 dan mengulang pemesanan baru di link yang sama sebelum pukul 23:59 setiap harinya..</p>
+                </details>
+                <details>
+                    <summary> Mengapa pesanan saya baru sampai keesokan harinya?</summary>
+                    <p class="text">Pesanan Anda kami penuhi keesokan harinya karena kami ingin memastikan produk yang Anda pesan sudah sesuai.</p>
+                </details>
+                <details>
+                    <summary> Apakah ada biaya pengiriman?</summary>
+                    <p class="text">Tidak ada biaya pengiriman atau ongkos kirim yang kami kenakan.</p>
+                </details>
+                <details>
+                    <summary> Syarat & Ketentuan Metode Refund serta Informasi Lainnya </summary>
+                    <p class="text">Jika ada pertanyaan, silakan hubungi Whatsapp Customer Service Segari untuk bantuan lebih lanjut.</p>
+                    <p class="text">WhatsApp: 081383796300</p>
+                </details>
             </div>
         </div>
         <br>
@@ -158,8 +144,8 @@
             </p>
         </footer>
         <section>
-         <?php require "navbarbotom.php"; ?>
-      </section>
+            <?php require "navbarbotom.php"; ?>
+        </section>
     </div>
 
 

@@ -94,8 +94,12 @@
                      <input type="password" class="form-control" name="password">
                   </div>
                   <button class="btn-login" type="submit" name="submit" value="submit">Login</button>
-                  <a href="cs.php" class="no-decoration text-white">
+                  <a href="cs.php" class="no-decoration">
                      <h5> lupa akun/password <i class='bx bx-support'></i></h5>
+                  </a>
+                  <p class="text-white">Belum Punya Akun?</p>
+                  <a href="register.php" class="no-decoration">
+                        <h1>DISINI</h1>
                   </a>
                </div>
             </div>

@@ -60,3 +60,16 @@
     <?php
     }
     ?>
+
+
+<div class="container mt-5">
+            <div class="box">
+                <p class="faqs">
+                    <details>
+                        <summary>What is lorem ipsum</summary>
+                        <p class="text">Lorem ipsum dolor sit amet.</p>
+                    </details>
+                </p>
+            </div>
+           
+        </div>

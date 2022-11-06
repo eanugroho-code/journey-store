@@ -69,11 +69,11 @@ $data = mysqli_fetch_array($query);
                     <div class="alert alert-warning" role="alert">
                         <?php if (isset($_SESSION["id_pelanggan"])) : ?>
                             <a href="logout.php">
-                                <li> <i class='bx bx-log-out'> Logout </i></li>
+                                <li> <i class='bx bx-log-out'> LOGOUT </i></li>
                             </a>
                         <?php else : ?>
                             <a href="login.php">
-                                <li><i class='bx bx-log-in'> Login </i></li>
+                                <li><i class='bx bx-log-in'> LOGIN </i></li>
                             </a>
                         <?php endif ?>
                     </div>
@@ -131,9 +131,7 @@ $data = mysqli_fetch_array($query);
                 <a href="mailto:journeyofficial96@gmail.com">journeyofficial96@gmail.com</a>
             </p>
         </footer>
-
-
-        <br>
+        <br><br><br>
         <?php require "navbarbotom.php"; ?>
     </div>
 

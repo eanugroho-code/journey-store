@@ -87,11 +87,11 @@
                   <h1>LOGIN</h1>
                   <div class="textfield">
                      <label for="whatsapp_pelanggan">WhatsApp</label>
-                     <input type="number" class="form-control" name="whatsapp_pelanggan">
+                     <input type="number" class="form-control" name="whatsapp_pelanggan" min="0"  placeholder="Nomor WhatsApp"  required >
                   </div>
                   <div class="textfield">
                      <label for="password">Password</label>
-                     <input type="password" class="form-control" name="password">
+                     <input type="password" class="form-control" name="password"  placeholder="password">
                   </div>
                   <button class="btn-login" type="submit" name="submit" value="submit">Login</button>
                   <a href="cs.php" class="no-decoration">

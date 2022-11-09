@@ -98,7 +98,11 @@
                 </details>
                 <details>
                     <summary> Bagaimana cara mendapatkan akun untuk login ?</summary>
-                    <p class="text">silahkan kamu beralih ke halaman account lalu kamu klik login, setelah itu kamu registrasi di bawah tulisan tombol login.</p>
+                    <p class="text">silahkan kamu beralih ke halaman account, lalu kamu klik login, setelah itu kamu registrasi di bawah tulisan tombol login.</p>
+                </details>
+                <details>
+                    <summary> Bagaimana cara akses untuk login ?</summary>
+                    <p class="text">silahkan kamu beralih ke halaman account, lalu kamu klik login, setelah itu kamu inputkan nomer whatsapp dan password yang telah di daftarkan.</p>
                 </details>
                 <details>
                     <summary> Bagaimana Cara untuk bertransaksi ?</summary>

@@ -67,9 +67,9 @@ $data = mysqli_fetch_array($query);
             mysqli_query($mysqli, "INSERT INTO pelanggan(email_pelanggan, password, nama_pelanggan, whatsapp_pelanggan, alamat_pelanggan) VALUES( '$email_pelanggan', md5('$password'), '$nama_pelanggan', '$whatsapp_pelanggan', '$alamat_pelanggan')")
                or die("Could not execute the insert query.");
 
-               echo "register success";
-               echo "<br/>";
-               echo "<a href='login.php'>Login</a>";
+            echo "register success";
+            echo "<br/>";
+            echo "<a href='login.php'>Login</a>";
          }
       } else {
       ?>
@@ -81,7 +81,7 @@ $data = mysqli_fetch_array($query);
             <table width="75%">
                <tr>
                   <td>Email</td>
-                  <td><input type="text" name="email_pelanggan"></td>
+                  <td><input type="text" name="email_pelanggan" required></td>
                </tr>
                <tr>
                   <td>Password</td>
@@ -89,30 +89,31 @@ $data = mysqli_fetch_array($query);
                </tr>
                <tr>
                   <td width="10%">Full Name</td>
-                  <td><input type="text" name="nama_pelanggan"></td>
+                  <td><input type="text" name="nama_pelanggan" required></td>
                </tr>
                <tr>
                   <td>Whatsapp</td>
-                  <td><input type="text" name="whatsapp_pelanggan"></td>
+                  <td><input type="number" name="whatsapp_pelanggan" min="0" required></td>
                </tr>
                <tr>
                   <td>Address</td>
-                  <td><input type="text" name="alamat_pelanggan"></td>
+                  <td><input type="text" name="alamat_pelanggan" required></td>
                </tr>
                <tr>
                   <td></td>
-                  <td><input type="submit" name="submit" value="Submit"></td>
+                  <td>
+                     <br><input class="btn btn-info center" type="submit" name="submit" value="Submit">
+                  </td>
                </tr>
             </table>
          </form>
       <?php
       }
       ?>
-   </div>
 
 
-   <br>
-   <?php require "navbarbotom.php"; ?>
+      <br>
+      <?php require "navbarbotom.php"; ?>
    </div>
 
 

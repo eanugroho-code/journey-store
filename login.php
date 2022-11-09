@@ -24,7 +24,7 @@
    <?php
 
    if (isset($_POST['submit'])) {
-      $email = mysqli_real_escape_string($mysqli, $_POST['email_pelanggan']);
+      $email = mysqli_real_escape_string($mysqli, $_POST['whatsapp_pelanggan']);
       $pass = mysqli_real_escape_string($mysqli, $_POST['password']);
 
       if ($email == "" || $pass == "") {
@@ -39,7 +39,7 @@
          // echo "<br/>";
          // echo "<a href='login.php'>Go back</a>";
       } else {
-         $result = mysqli_query($mysqli, "SELECT * FROM pelanggan WHERE email_pelanggan='$email' AND password=md5('$pass')")
+         $result = mysqli_query($mysqli, "SELECT * FROM pelanggan WHERE whatsapp_pelanggan='$email' AND password=md5('$pass')")
             or die("Could not execute the select query.");
 
          $row = mysqli_fetch_assoc($result);
@@ -86,8 +86,8 @@
                <div class="card-login">
                   <h1>LOGIN</h1>
                   <div class="textfield">
-                     <label for="email_pelanggan">Email</label>
-                     <input type="email" class="form-control" name="email_pelanggan">
+                     <label for="whatsapp_pelanggan">WhatsApp</label>
+                     <input type="number" class="form-control" name="whatsapp_pelanggan">
                   </div>
                   <div class="textfield">
                      <label for="password">Password</label>

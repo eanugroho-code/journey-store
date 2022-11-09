@@ -189,7 +189,7 @@
                             <input type="text" class="form-control" id="name" aria-describedby="name" name="nama">
                         </div>
                         <div class="mb-3">
-                            <label for="whatsapp" class="form-label">WhatsApp</label>
+                            <label for="email" class="form-label">WhatsApp</label>
                             <input type="number" class="form-control" id="whatsapp" aria-describedby="whatsapp" name="whatsapp">
                         </div>
                         <div class="mb-3">

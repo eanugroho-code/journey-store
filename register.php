@@ -67,8 +67,9 @@ $data = mysqli_fetch_array($query);
             mysqli_query($mysqli, "INSERT INTO pelanggan(email_pelanggan, password, nama_pelanggan, whatsapp_pelanggan, alamat_pelanggan) VALUES( '$email_pelanggan', md5('$password'), '$nama_pelanggan', '$whatsapp_pelanggan', '$alamat_pelanggan')")
                or die("Could not execute the insert query.");
 
-            $message = 'Registrasi berhasil';
-            header("location:login.php");
+               echo "register success";
+               echo "<br/>";
+               echo "<a href='login.php'>Login</a>";
          }
       } else {
       ?>
@@ -77,7 +78,7 @@ $data = mysqli_fetch_array($query);
          <h2>Register</h2>
          </p>
          <form name="form1" method="post" action="">
-            <table width="75%" border="0">
+            <table width="75%">
                <tr>
                   <td>Email</td>
                   <td><input type="text" name="email_pelanggan"></td>
@@ -99,7 +100,7 @@ $data = mysqli_fetch_array($query);
                   <td><input type="text" name="alamat_pelanggan"></td>
                </tr>
                <tr>
-                  <td> </td>
+                  <td></td>
                   <td><input type="submit" name="submit" value="Submit"></td>
                </tr>
             </table>

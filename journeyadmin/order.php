@@ -2,6 +2,19 @@
 require "session.php";
 require "../koneksi.php";
 ?>
+<?php 
+    $semuadata=array();
+    if(isset($_POST["kirim"]))
+    {
+        $tgl_mulai = $_POST["tglm"];
+        $tgl_selesai = $_post['tgls'];
+        $mysqli->query("SELECT * FROM pembelian pm LEFT JOIN pelanggan pl ON pm.id_pelanggan=pl.id_pelanggan WHERE tanggal_pembelian BETWEEN '$tgl_mulai' AND '$tgl_selesai'");
+        while($pecah = $ambil->fetch_assoc())
+        {
+            $semuadata[]=$pecah;
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +50,26 @@ require "../koneksi.php";
             </ol>
         </nav>
 
-
+        <form action="post">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label>Tanggal Mulai</label>
+                        <input type="date" class="form-control" name="tglm">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label>Tanggal Selesai</label>
+                        <input type="date" class="form-control" name="tgls">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label>&nbsp;</label><br>
+                    <button class="btn btn-primary" name="kirim">Lihat</button>
+                </div>
+            </div>
+        </form>
 
 
         <div class="mt-3 mb-5">
@@ -52,6 +84,7 @@ require "../koneksi.php";
                             <th>No WhatsApp</th>
                             <th>alamat</th>
                             <th>Total</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,6 +100,7 @@ require "../koneksi.php";
                                 <td><?php echo $pecah['whatsapp_pelanggan']; ?></td>
                                 <td><?php echo $pecah['alamat_pelanggan']; ?></td>
                                 <td><?php echo $pecah['total_pembelian']; ?></td>
+                                <td><?php echo $pecah['status_pembelian'];?></td>
 
 
                                 <td>

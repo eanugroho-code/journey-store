@@ -13,6 +13,9 @@ require "../koneksi.php";
         {
             $semuadata[]=$pecah;
         }
+        echo "<pre>";
+        print_r ($semuadata);
+        echo "</pre>";
     }
 ?>
 <!DOCTYPE html>

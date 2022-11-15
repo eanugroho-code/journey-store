@@ -28,7 +28,6 @@ $detail = $ambil->fetch_assoc();
         <div class="col-12 col-mid-6 mb-5">
             <form action="" enctype="multipart/form-data">
                 <br><br>
-
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -63,10 +62,36 @@ $detail = $ambil->fetch_assoc();
                         </tr>
                     </tfoot>
                 </table>
-
             </form>
-
         </div>
+        <form method="post">
+                <div class="form-group">
+                    <label> DI PROSES OLEH</label>
+                    <input type="text" class="form-control" name="team">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control" name="status">
+                        <option value="">PILIH STATUS</option>
+                        <option value="Sedang Diproses">KONFIRMASI BY WA</option>
+                        <option value="Pesanan Sedang Dikirim">PESANAN SEDANG DI KIRIM</option>
+                        <option value="Batal">BATAL</option>
+                        <option value="Pesanan Selesai">Berhasil</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" name="proses">PROSES</button>
+            </form>
+            <?php
+            if(isset($_POST["proses"]))
+            {
+                $team = $_POST["team"];
+                $status = $_POST["status"];
+                $mysqli->query("UPDATE pembelian SET team_proses='$team', status_pembelian='$status' WHERE id_pembelian='$_GET[o]'");
+
+                echo "<script>alert('status terupdate')</script>";
+                echo "<script>location='order.php'</script>";
+            }
+            ?>
     </div>
 
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>

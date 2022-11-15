@@ -68,7 +68,10 @@ session_start();
                         ?>
                             <tr>
                                 <td class="text-white bg-dark"><?php echo $nomor; ?></td>
-                                <td class="text-white bg-dark"><?php echo $data["tanggal_pembelian"] ?></td>
+                                <td class="text-white bg-dark"><?php echo $data["tanggal_pembelian"] ?>
+                                    <br>
+                                    Di Proses Oleh : <?php echo $data["team_proses"]?>
+                                </td>
                                 <td class="text-white bg-dark"><?php echo $data["status_pembelian"] ?></td>
                                 <td class="text-white bg-dark">Rp. <?php echo number_format($data["total_pembelian"]) ?></td>
                                 <td class="text-white bg-dark">

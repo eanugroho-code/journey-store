@@ -122,6 +122,8 @@ $data = mysqli_fetch_array($query);
                     $mysqli->query("INSERT INTO pembelian_produk (id_pembelian, id_produk, jumlah_produk) VALUES ('$id_pembelian_barusan','$id_produk','$jumlah') ");
 
                     $mysqli->query("UPDATE produk SET ketersediaan_stok=ketersediaan_stok -$jumlah WHERE id_produk='$id_produk'");
+
+                    // $mysqli->query("UPDATE pembelian SET status_pembelian='orderan mu sedang diproses' WHERE id_pembelian='id'");
                 }
                 unset($_SESSION["keranjang"]);
                 echo  "<script>alert ('pembelian sukses');</script>";

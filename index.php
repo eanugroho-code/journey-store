@@ -32,14 +32,12 @@ while ($row = mysqli_fetch_array($query)) {
       $li .= '<li data-target="#carouselExampleIndicators" data-slide-to="' . $i . '" class="active"></li>';
 
       $div .= '<div class="carousel-item active">
-      <img src="journeyadmin/images/' . $row['image'] . '" class="d-block w-100" alt="...">
-    ';
+      <img src="journeyadmin/images/' . $row['image'] . '" class="d-block w-100" alt="...">';
    } else {
       $li .= '<li data-target="#carouselExampleIndicators" data-slide-to="' . $i . '"></li>';
 
       $div .= '<div class="carousel-item ">
-      <img src="journeyadmin/images/' . $row['image'] . '" class="d-block w-100" alt="...">
-    ';
+      <img src="journeyadmin/images/' . $row['image'] . '" class="d-block w-100" alt="...">';
    }
 
    $div .= '</div>';
